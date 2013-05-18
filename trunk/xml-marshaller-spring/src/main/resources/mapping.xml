@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+<mapping>
+
+	<description>
+		One mapping file can contain multiple class mappings and nested relations between them
+	</description>
+
+	<class name="com.bharatonjava.domain.Department">
+		
+		<map-to xml="department" />
+		
+		<field name="name" type="string">
+			<bind-xml name="name" node="attribute"/>
+		</field>
+		
+		<field name="employees" type="com.bharatonjava.domain.Employee" collection="arraylist">
+			 <bind-xml name="employee" />
+		</field>
+		
+	</class>
+
+	<class name="com.bharatonjava.domain.Employee">
+
+		<map-to xml="employee"  />
+
+		<field name="age" type="integer">
+			<bind-xml name="age" node="attribute" />
+		</field>
+
+		<field name="name" type="string">
+			<bind-xml name="name" node="element" />
+		</field>
+
+		<field name="salary" type="double">
+			<bind-xml name="salary" node="element" />
+		</field>
+	</class>
+</mapping>
