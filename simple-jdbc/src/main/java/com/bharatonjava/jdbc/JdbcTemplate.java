@@ -1,14 +1,75 @@
 package com.bharatonjava.jdbc;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Properties;
+
+import com.bharatonjava.jdbc.exceptions.JdbcConfigurationException;
 
 public abstract class JdbcTemplate {
 
-	protected Connection getConnection() throws SQLException {
+	private final String PROP_FILE = "simple-jdbc.properties";
 
-		DbcpConnectionPool.setupDataSource("com.mysql.jdbc.Driver",
-				"jdbc:mysql://localhost:3306/test", "root", "");
+	private Properties loadConfiguration() throws JdbcConfigurationException {
+
+		Properties props = new Properties();
+		InputStream inputStream = this.getClass().getClassLoader()
+				.getResourceAsStream(PROP_FILE);
+
+		if (inputStream == null) {
+			throw new JdbcConfigurationException("File " + PROP_FILE
+					+ " not found in classpath");
+		}
+
+		try {
+			props.load(inputStream);
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		return props;
+	}
+
+	protected Connection getConnection() throws SQLException {
+		Properties props = null;
+
+		try {
+			props = loadConfiguration();
+			String driver = props.getProperty("jdbc.driver");
+			if (driver == null) {
+				throw new JdbcConfigurationException(
+						"Property jdbc.driver not found in " + PROP_FILE
+								+ " file.");
+			}
+			String url = props.getProperty("jdbc.url");
+			if (url == null) {
+				throw new JdbcConfigurationException(
+						"Property jdbc.url not found in " + PROP_FILE
+								+ " file.");
+			}
+			String username = props.getProperty("jdbc.username");
+			if (username == null) {
+				throw new JdbcConfigurationException(
+						"Property jdbc.username not found in " + PROP_FILE
+								+ " file.");
+			}
+			String password = props.getProperty("jdbc.password");
+			if (password == null) {
+				throw new JdbcConfigurationException(
+						"Property jdbc.password not found in " + PROP_FILE
+								+ " file.");
+			}
+
+			DbcpConnectionPool.setupDataSource(driver, url, username, password);
+
+		} catch (JdbcConfigurationException e) {
+			e.printStackTrace();
+		}
+
+		// DbcpConnectionPool.setupDataSource("com.mysql.jdbc.Driver",
+		// "jdbc:mysql://localhost:3306/test", "root", "");
 		DbcpConnectionPool.printDataSourceStats();
 		return DbcpConnectionPool.getConnection();
 	}
@@ -17,12 +78,13 @@ public abstract class JdbcTemplate {
 		System.out.println("close connection");
 	}
 
-	public final void executeQuery() throws SQLException {
+	public final void executeQuery(String sql) throws SQLException {
 		Connection c = getConnection();
-		process(c);
+		process(c, sql);
 		closeConnection();
 	}
 
-	protected abstract void process(Connection c) throws SQLException;
+	protected abstract void process(Connection c, String sql)
+			throws SQLException;
 
 }
