@@ -15,13 +15,10 @@ import org.springframework.oxm.Unmarshaller;
 import com.bharatonjava.domain.Department;
 import com.bharatonjava.domain.Employee;
 
-
 public class XmlMarshaller {
-	
+
 	private static final String FILE_NAME = "department.xml";
-	
-	
-	
+
 	private Marshaller marshaller;
 	private Unmarshaller unmarshaller;
 
@@ -33,16 +30,20 @@ public class XmlMarshaller {
 		this.unmarshaller = unmarshaller;
 	}
 
+	/**
+	 * Java to xml
+	 * @throws IOException
+	 */
 	public void saveDepartment() throws IOException {
 		FileOutputStream os = null;
 		Employee e1 = new Employee("Bharat", 30, 50000);
 		Employee e2 = new Employee("Jayant", 22, 40000);
-		
+
 		Department d = new Department();
 		d.setName("Accounts");
 		d.getEmployees().add(e1);
 		d.getEmployees().add(e2);
-		
+
 		try {
 			os = new FileOutputStream(FILE_NAME);
 			this.marshaller.marshal(d, new StreamResult(os));
@@ -53,9 +54,13 @@ public class XmlMarshaller {
 		}
 	}
 
+	/**
+	 * xml to java
+	 * @throws IOException
+	 */
 	public void loadDepartment() throws IOException {
 		FileInputStream is = null;
-		
+
 		Department d = null;
 		try {
 			is = new FileInputStream(FILE_NAME);
@@ -65,18 +70,23 @@ public class XmlMarshaller {
 				is.close();
 			}
 		}
-		
+
 		System.out.println(d);
 	}
 
+	/**
+	 * The main method
+	 * @param args
+	 * @throws IOException
+	 */
+	
 	public static void main(String[] args) throws IOException {
-		ApplicationContext appContext = new ClassPathXmlApplicationContext(
-				"applicationContext.xml");
-		XmlMarshaller marsheller = (XmlMarshaller) appContext
-				.getBean("marsheller");
-		marsheller.saveDepartment();
+		ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+		XmlMarshaller marsheller = (XmlMarshaller) appContext.getBean("marsheller");
 		
+		marsheller.saveDepartment();
 		marsheller.loadDepartment();
+		
 		System.out.println("done.");
 	}
 }
