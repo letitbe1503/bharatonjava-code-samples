@@ -8,10 +8,10 @@ import java.sql.Statement;
 public class SimpleJdbcTemplate extends JdbcTemplate {
 
 	@Override
-	protected void process(Connection conn) throws SQLException {
+	protected void process(Connection conn, String sql) throws SQLException {
 		Statement stmt = conn.createStatement();
 		System.out.println("process....");
-		ResultSet rs = stmt.executeQuery("select * from contacts");
+		ResultSet rs = stmt.executeQuery(sql);
 		while(rs.next())
 		{
 			System.out.println(rs.getString("building"));
