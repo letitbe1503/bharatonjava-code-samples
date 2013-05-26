@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import com.bharatonjava.jdbc.exceptions.JdbcConfigurationException;
+import com.bharatonjava.jdbc.mappers.RowMapper;
 
 public abstract class JdbcTemplate {
 
@@ -78,13 +79,35 @@ public abstract class JdbcTemplate {
 		System.out.println("close connection");
 	}
 
+	/**
+	 * Template method
+	 * 
+	 * @param sql
+	 * @throws SQLException
+	 */
 	public final void executeQuery(String sql) throws SQLException {
 		Connection c = getConnection();
 		process(c, sql);
 		closeConnection();
 	}
 
+	/**
+	 * Template method with rowmapper.
+	 * 
+	 * @param sql
+	 * @param rowMapper
+	 * @throws SQLException
+	 */
+	public final void executeQuery(String sql, RowMapper rowMapper)
+			throws SQLException {
+		Connection c = getConnection();
+		process(c, sql, rowMapper);
+		closeConnection();
+	}
+
 	protected abstract void process(Connection c, String sql)
 			throws SQLException;
 
+	protected abstract void process(Connection conn, String sql,
+			RowMapper rowMapper) throws SQLException;
 }

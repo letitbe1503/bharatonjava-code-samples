@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.bharatonjava.jdbc.mappers.RowMapper;
+
 public class SimpleJdbcTemplate extends JdbcTemplate {
 
 	@Override
@@ -12,8 +14,18 @@ public class SimpleJdbcTemplate extends JdbcTemplate {
 		Statement stmt = conn.createStatement();
 		System.out.println("process....");
 		ResultSet rs = stmt.executeQuery(sql);
-		while(rs.next())
-		{
+		while (rs.next()) {
+			System.out.println(rs.getString("building"));
+		}
+	}
+
+	@Override
+	protected void process(Connection conn, String sql, RowMapper rowMapper)
+			throws SQLException {
+		Statement stmt = conn.createStatement();
+		System.out.println("process....");
+		ResultSet rs = stmt.executeQuery(sql);
+		while (rs.next()) {
 			System.out.println(rs.getString("building"));
 		}
 	}
