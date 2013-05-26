@@ -1,6 +1,6 @@
 package com.bharatonjava.jdbc.exceptions;
 
-public class JdbcConfigurationException extends Exception{
+public class JdbcConfigurationException extends RuntimeException{
 
 	private static final long serialVersionUID = -6168932787677919957L;
 
