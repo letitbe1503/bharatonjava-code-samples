@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Properties;
 
 import com.bharatonjava.jdbc.exceptions.JdbcConfigurationException;
 import com.bharatonjava.jdbc.mappers.RowMapper;
 
-public abstract class JdbcTemplate {
+public abstract class JdbcTemplate<T> {
 
 	private final String PROP_FILE = "simple-jdbc.properties";
 
@@ -87,7 +88,7 @@ public abstract class JdbcTemplate {
 	 */
 	public final void executeQuery(String sql) throws SQLException {
 		Connection c = getConnection();
-		process(c, sql);
+		//process(c, sql);
 		closeConnection();
 	}
 
@@ -98,16 +99,23 @@ public abstract class JdbcTemplate {
 	 * @param rowMapper
 	 * @throws SQLException
 	 */
-	public final void executeQuery(String sql, RowMapper rowMapper)
+	public final void executeQuery(String sql, RowMapper<T> rowMapper)
 			throws SQLException {
+		System.out.println("11111");
 		Connection c = getConnection();
 		process(c, sql, rowMapper);
 		closeConnection();
 	}
+	
+	public List<T> query(String sql, RowMapper<T> rowMapper) throws SQLException{
+		Connection c = getConnection();
+		processQuery(c, sql, rowMapper);
+		return null;
+	}
 
-	protected abstract void process(Connection c, String sql)
+	protected abstract void processQuery(Connection c, String sql, RowMapper<T> rowMapper);
+	
+	protected abstract <T> List<T> process(Connection c, String sql, RowMapper<T> rowMapper)
 			throws SQLException;
 
-	protected abstract void process(Connection conn, String sql,
-			RowMapper rowMapper) throws SQLException;
 }

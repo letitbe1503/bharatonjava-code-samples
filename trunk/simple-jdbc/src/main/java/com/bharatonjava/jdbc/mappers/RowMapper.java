@@ -4,12 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *  Implementations must implement this method to map each row of data in the ResultSet.
+ * Implementations must implement this method to map each row of data in the
+ * ResultSet.
+ * 
  * @author Bharat sharma
- *
+ * 
  */
-public interface RowMapper {
+public interface RowMapper<T> {
 
-	Object mapRow(ResultSet rs, int rowNum) throws SQLException;
-	
+	T mapRow(ResultSet rs, int rowNum) throws SQLException;
+
 }
