@@ -1,5 +1,7 @@
 package com.bharatonjava.jdbc.util;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Collection;
 
 import com.bharatonjava.jdbc.exceptions.EmptyResultsetException;
@@ -23,4 +25,5 @@ public class DataAccessUtils {
 
 		return results.iterator().next();
 	}
+
 }

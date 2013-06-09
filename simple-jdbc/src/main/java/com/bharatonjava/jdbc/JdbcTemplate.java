@@ -3,14 +3,17 @@ package com.bharatonjava.jdbc;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Properties;
 
 import com.bharatonjava.jdbc.exceptions.JdbcConfigurationException;
 import com.bharatonjava.jdbc.mappers.RowMapper;
+import com.bharatonjava.transactions.TransactionAnnotationProcessor;
 
-public abstract class JdbcTemplate<T> {
+public abstract class JdbcTemplate {
 
 	private final String PROP_FILE = "simple-jdbc.properties";
 
@@ -76,8 +79,21 @@ public abstract class JdbcTemplate<T> {
 		return DbcpConnectionPool.getConnection();
 	}
 
-	protected void closeConnection() {
-		System.out.println("close connection");
+	protected void beginTransaction(Connection c) throws SQLException{
+		c.setAutoCommit(false);
+	}
+	
+	protected void closeConnection(Connection c, Statement s, ResultSet rs)
+			throws SQLException {
+		if (rs != null) {
+			rs.close();
+		}
+		if (s != null) {
+			s.close();
+		}
+		if (c != null) {
+			c.close();
+		}
 	}
 
 	/**
@@ -86,36 +102,62 @@ public abstract class JdbcTemplate<T> {
 	 * @param sql
 	 * @throws SQLException
 	 */
-	public final void executeQuery(String sql) throws SQLException {
+	public final <T> List<T> query(String sql, RowMapper<T> rowMapper)
+			throws SQLException {
+
 		Connection c = getConnection();
-		//process(c, sql);
-		closeConnection();
+		List<T> lst = processQueryForList(c, sql, rowMapper);
+		closeConnection(c, null, null);
+		return lst;
+
 	}
+
+	protected abstract <T> List<T> processQueryForList(Connection c,
+			String sql, RowMapper<T> rowMapper) throws SQLException;
 
 	/**
-	 * Template method with rowmapper.
 	 * 
 	 * @param sql
-	 * @param rowMapper
+	 * @param t
+	 * @return
 	 * @throws SQLException
 	 */
-	public final void executeQuery(String sql, RowMapper<T> rowMapper)
+	public final <T> T queryForObject(String sql, RowMapper<T> rowMapper)
 			throws SQLException {
-		System.out.println("11111");
+		
+		TransactionAnnotationProcessor.begin();
+		
 		Connection c = getConnection();
-		process(c, sql, rowMapper);
-		closeConnection();
-	}
-	
-	public List<T> query(String sql, RowMapper<T> rowMapper) throws SQLException{
-		Connection c = getConnection();
-		processQuery(c, sql, rowMapper);
-		return null;
+		T o = processQueryForObject(c, sql, rowMapper);
+		closeConnection(c, null, null);
+		return o;
 	}
 
-	protected abstract void processQuery(Connection c, String sql, RowMapper<T> rowMapper);
-	
-	protected abstract <T> List<T> process(Connection c, String sql, RowMapper<T> rowMapper)
-			throws SQLException;
+	protected abstract <T> T processQueryForObject(Connection c, String sql,
+			RowMapper<T> rowMapper) throws SQLException;
 
+	/**
+	 * 
+	 * @param sql
+	 * @param values
+	 * @return
+	 * @throws SQLException
+	 */
+	public int executeInsert(String sql, Object[] values) throws SQLException {
+
+		Connection c = getConnection();
+		int status = 0;
+		try {
+			status = processExecuteInsert(c, sql, values);
+		} catch (SQLException sqle) {
+			throw sqle;
+		} finally {
+			closeConnection(c, null, null);
+		}
+
+		return status;
+	}
+
+	public abstract int processExecuteInsert(Connection c, String sql,
+			Object[] values) throws SQLException;
 }
