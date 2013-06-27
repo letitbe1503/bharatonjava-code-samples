@@ -11,7 +11,7 @@
 <script type="text/javascript" src='<s:url value="/assets/js/jquery-1.8.0.js"/>'>
 </script>
 
-<script type="text/javascript" src='<s:url value="/assets/js/dms.js"/>'>
+<script type="text/javascript" src='<s:url value="/assets/js/school.js"/>'>
 </script>
 
 </head>
@@ -22,7 +22,6 @@
 			<t:insertAttribute name="top" />
 			<!--<co id="co_tile_top" />-->
 		</div>
-		<div class="topTabs"><t:insertAttribute name="topTabs"/></div>
 		<div class="content-container">
 			<div class="side">
 				<t:insertAttribute name="side" />
