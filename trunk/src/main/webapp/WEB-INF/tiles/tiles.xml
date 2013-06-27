@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<!-- Base layouts start -->
+	<definition name="template" template="/WEB-INF/view/templates/mainTemplate.jsp">
+		<put-attribute name="top" value="/WEB-INF/view/common/header.jsp" />
+		<put-attribute name="topTabs"
+			value="/WEB-INF/view/common/navigation.jsp" />
+		<put-attribute name="side"
+			value="/WEB-INF/view/common/navigation.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp" />
+	</definition>
+
+<!-- 	<definition name="fullPageTemplate" -->
+<!-- 		template="/WEB-INF/view/templates/mainTableTemplate.jsp"> -->
+<!-- 		<put-attribute name="topTabs" -->
+<!-- 			value="/WEB-INF/view/includes/topTabs.jsp" /> -->
+<!-- 		<put-attribute name="top" value="/WEB-INF/view/includes/header.jsp" /> -->
+<!-- 		<put-attribute name="footer" value="/WEB-INF/view/includes/footer.jsp" /> -->
+<!-- 	</definition> -->
+
+	<!-- Base layouts end -->
+
+	<definition name="home" extends="template">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="content" value="/WEB-INF/view/home/home.jsp" />
+	</definition>
+
+
+</tiles-definitions>
