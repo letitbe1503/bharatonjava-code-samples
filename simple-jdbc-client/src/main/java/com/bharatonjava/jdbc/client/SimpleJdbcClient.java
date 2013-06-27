@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.bharatonjava.jdbc.JdbcTemplate;
 import com.bharatonjava.jdbc.SimpleJdbcTemplate;
 import com.bharatonjava.jdbc.mappers.RowMapper;
@@ -11,30 +13,33 @@ import com.bharatonjava.transactions.DoInTransaction;
 
 public class SimpleJdbcClient {
 
+	private static final Logger log = Logger.getLogger(SimpleJdbcClient.class);
+	
 	public static void main(String[] args) throws SQLException {
 
 		new SimpleJdbcClient().go();
-		
+
 	}
 
 	public void go() throws SQLException {
 
 		JdbcTemplate template = new SimpleJdbcTemplate();
-
-		// executeInsert(template);
+		log.info("lllllllllllllll");
+		executeInsert(template);
 		System.out.println("------------------------------------");
 		// getListOfObjects(template);
 		System.out.println("------------------------------------");
-		getSingleObject(template);
-		
-		
+		//getSingleObject(template);
+		//testExecuteMethod(template);
 	}
 
-	public void executeInsert(JdbcTemplate template) throws SQLException{
-		
-		template.executeInsert("insert into contacts (contact_id, building) values (?,?)", new Object[]{5,"Ventura"});
+	public void executeInsert(JdbcTemplate template) throws SQLException {
+
+		template.executeInsert(
+				"insert into contacts (contact_id, building) values (?,?)",
+				new Object[] { 5, "Ventura" });
 	}
-	
+
 	public void getListOfObjects(JdbcTemplate template) throws SQLException {
 		// Query for list
 		List<Contact> lst = template.query(
@@ -51,7 +56,7 @@ public class SimpleJdbcClient {
 					}
 				});
 
-		System.out.println("List of objects"+lst);
+		System.out.println("List of objects" + lst);
 	}
 
 	@DoInTransaction
@@ -72,5 +77,10 @@ public class SimpleJdbcClient {
 				});
 
 		System.out.println("Single object: " + c);
+	}
+
+	public void testExecuteMethod(JdbcTemplate template)
+			throws SQLException {
+		template.execute("create table contacts(contact_id integer, building varchar(50))");
 	}
 }

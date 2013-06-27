@@ -160,4 +160,17 @@ public abstract class JdbcTemplate {
 
 	public abstract int processExecuteInsert(Connection c, String sql,
 			Object[] values) throws SQLException;
+	
+	
+	public void execute(String sql) throws SQLException{
+		Connection c = getConnection();
+		try{
+			processExecute(c, sql);
+		}finally{
+			closeConnection(c, null, null);
+		}
+	}
+	
+	public abstract void processExecute(Connection c, String sql) throws SQLException;
+	
 }
