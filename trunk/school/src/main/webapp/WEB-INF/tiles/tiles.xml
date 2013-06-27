@@ -13,13 +13,15 @@
 		<put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp" />
 	</definition>
 
-<!-- 	<definition name="fullPageTemplate" -->
-<!-- 		template="/WEB-INF/view/templates/mainTableTemplate.jsp"> -->
-<!-- 		<put-attribute name="topTabs" -->
-<!-- 			value="/WEB-INF/view/includes/topTabs.jsp" /> -->
-<!-- 		<put-attribute name="top" value="/WEB-INF/view/includes/header.jsp" /> -->
-<!-- 		<put-attribute name="footer" value="/WEB-INF/view/includes/footer.jsp" /> -->
-<!-- 	</definition> -->
+	<!-- <definition name="fullPageTemplate" -->
+	<!-- template="/WEB-INF/view/templates/mainTableTemplate.jsp"> -->
+	<!-- <put-attribute name="topTabs" -->
+	<!-- value="/WEB-INF/view/includes/topTabs.jsp" /> -->
+	<!-- <put-attribute name="top" value="/WEB-INF/view/includes/header.jsp" 
+		/> -->
+	<!-- <put-attribute name="footer" value="/WEB-INF/view/includes/footer.jsp" 
+		/> -->
+	<!-- </definition> -->
 
 	<!-- Base layouts end -->
 
@@ -28,5 +30,9 @@
 		<put-attribute name="content" value="/WEB-INF/view/home/home.jsp" />
 	</definition>
 
+	<definition name="registerNewStudent" extends="template">
+		<put-attribute name="title" value="Student Registration" />
+		<put-attribute name="content" value="/WEB-INF/view/student/register.jsp" />
+	</definition>
 
 </tiles-definitions>
