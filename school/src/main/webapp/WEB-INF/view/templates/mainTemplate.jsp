@@ -7,10 +7,15 @@
 <link href="<s:url value="/assets" />/css/styles.css"
 	rel="stylesheet" type="text/css" />
 
+<link href="<s:url value="/assets" />/css/redmond/jquery-ui-1.10.3.custom.css"
+	rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src='<s:url value="/assets/js/jquery-1.8.0.js"/>'>
+
+
+<script type="text/javascript" src='<s:url value="/assets/js/jquery-1.9.1.js"/>'>
 </script>
-
+<script type="text/javascript" src='<s:url value="/assets/js/jquery-ui-1.10.3.custom.js"/>'>
+</script>
 <script type="text/javascript" src='<s:url value="/assets/js/school.js"/>'>
 </script>
 
