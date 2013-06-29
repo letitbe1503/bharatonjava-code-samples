@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -23,6 +25,7 @@ public class Student {
 	}
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "STUDENT_ID")
 	public Long getStudentId() {
 		return studentId;
@@ -68,4 +71,13 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", firstName=" + firstName
+				+ ", middleName=" + middleName + ", lastName=" + lastName
+				+ ", dob=" + dob + "]";
+	}
+	
+	
 }
