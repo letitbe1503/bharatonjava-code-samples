@@ -1,8 +1,6 @@
 package com.bharatonjava.school.web;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bharatonjava.school.domain.Student;
 import com.bharatonjava.school.service.StudentService;
-import com.bharatonjava.school.utils.Constants;
+import com.bharatonjava.school.utils.Utils;
 import com.bharatonjava.school.utils.ViewConstants;
 import com.bharatonjava.school.web.formbean.StudentRegFormBean;
 
@@ -50,19 +48,23 @@ public class StudentController {
 		s.setFirstName(formBean.getFirstName());
 		s.setMiddleName(formBean.getMiddleName());
 		s.setLastName(formBean.getLastName());
-
-		DateFormat df = new SimpleDateFormat(Constants.DATE_FORMAT);
-
-		try {
-			s.setDob(df.parse(formBean.getDob()));
-		} catch (ParseException pe) {
-			pe.printStackTrace();
-		}
+		s.setDob(Utils.convertStringToDate(formBean.getDob()));
 
 		studentService.saveStudent(s);
 
 		mav.setViewName(ViewConstants.REGISTER_STUDENT_SUCCESS);
 		return mav;
 	}
+	
+	
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ModelAndView listStudents() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(ViewConstants.LIST_STUDENTS);
+		List<Student> students = studentService.getAllStudents();
+		mav.addObject("students", students);
+		return mav;
+	}
+	
 
 }
