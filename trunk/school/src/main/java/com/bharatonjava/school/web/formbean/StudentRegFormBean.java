@@ -1,12 +1,14 @@
 package com.bharatonjava.school.web.formbean;
 
+import java.util.Date;
+
 public class StudentRegFormBean {
 
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private Integer age;
-	
+	private Date dob;
+
 	public StudentRegFormBean() {
 	}
 
@@ -34,13 +36,11 @@ public class StudentRegFormBean {
 		this.lastName = lastName;
 	}
 
-	public Integer getAge() {
-		return age;
+	public Date getDob() {
+		return dob;
 	}
 
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
-	
-	
 }

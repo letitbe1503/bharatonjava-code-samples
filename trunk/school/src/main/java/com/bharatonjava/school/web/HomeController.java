@@ -15,8 +15,8 @@ public class HomeController {
 	private static final Log log = LogFactory.getLog(HomeController.class);
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public ModelAndView prepareHomePage(){
-		log.info("Entering prepareHomePage");
+	public ModelAndView showHomePage(){
+		log.info("Entering showHomePage method");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(ViewConstants.HOME_PAGE);
 		return  mav;

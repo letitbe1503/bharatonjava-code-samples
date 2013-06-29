@@ -8,34 +8,45 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
+<script type="text/javascript">
+	$(function() {
+		$('#dob').datepicker({
+			dateFormat : 'dd-mm-yy',
+			changeYear : true
+		});
+	});
+</script>
+
 </head>
 <body>
-	<form:form modelAttribute="frmBean">
+	<form:form modelAttribute="frmBean" action="" method="POST">
 		<table>
 			<tr>
-				<td><label for="firstName">First Name</label></td>
+				<td><label for="firstName"><spring:message
+							code="label.student.firstName" /></label></td>
 				<td><form:input path="firstName" /></td>
 			</tr>
 			<tr>
-				<td><label for="middleName">Middle Name</label></td>
+				<td><label for="middleName"><spring:message
+							code="label.student.middleName" /></label></td>
 				<td><form:input path="middleName" /></td>
 			</tr>
 			<tr>
-				<td><label for="lastName">Last Name</label></td>
+				<td><label for="lastName"><spring:message
+							code="label.student.lastName" /></label></td>
 				<td><form:input path="lastName" /></td>
 			</tr>
 			<tr>
-				<td><label for="age">Age</label></td>
-				<td><form:input path="age" /></td>
+				<td><label for="dob"><spring:message
+							code="label.student.dateOfBirth" /></label></td>
+				<td><form:input path="dob" /></td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
+				<td>&nbsp;</td>
+				<td><form:button value="Reset">Reset</form:button>&nbsp;<form:button>Submit</form:button></td>
 			</tr>
 		</table>
-
-
 
 	</form:form>
 </body>
