@@ -2,8 +2,10 @@ package com.bharatonjava.school.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bharatonjava.school.domain.Student;
@@ -32,7 +34,11 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	public List<Student> getAllStudents() {
 		Session session = this.sessionFactory.openSession();
-		List<Student> lst = session.createQuery("from Student").list();
+		List<Student> lst = null;
+		// lst = session.createQuery("from Student").list();
+		Criteria crit = session.createCriteria(Student.class);
+		crit.addOrder(Order.asc("firstName"));
+		lst = crit.list();
 		session.flush();
 		session.close();
 		return lst;
