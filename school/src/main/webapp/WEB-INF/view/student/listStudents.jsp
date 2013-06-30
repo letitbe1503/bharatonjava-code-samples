@@ -12,22 +12,75 @@
 <body>
 
 	<h3>All Students</h3>
-	<table border="1" width="100%">
-		<tr>
-			<td><strong>First Name</strong></td>
-			<td><strong>Middle Name</strong></td>
-			<td><strong>Last Name</strong></td>
-			<td><strong>Date of Birth</strong></td>
-		</tr>
+	
+<%--	
+	<table class="dataGrid">
+		<thead>
+			<tr>
+				<td><strong>First Name</strong></td>
+				<td><strong>Middle Name</strong></td>
+				<td><strong>Last Name</strong></td>
+				<td><strong>Date of Birth</strong></td>
+			</tr>
+		</thead>
 		<c:forEach items="${students}" var="item" varStatus="status">
 			<tr>
 				<td>${item.firstName}</td>
 				<td>${item.middleName}</td>
 				<td>${item.lastName}</td>
-				<td>${item.dob}</td>
+				<td><fmt:formatDate value="${item.dob}" pattern="dd-MM-yyyy" /></td>
 			</tr>
 		</c:forEach>
 	</table>
+ --%>
+	<!-- datagrid test -->
+
+	<div class="datagrid">
+		<table>
+			<thead>
+				<tr>
+					<th>Sr.No</th>
+					<th>Name</th>
+					<th>Date of Birth</th>
+					<th>Age</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<td colspan="4"><div id="paging">
+							<ul>
+								<li><a href="#"><span>Previous</span></a></li>
+								<li><a href="#" class="active"><span>1</span></a></li>
+								<li><a href="#"><span>2</span></a></li>
+								<li><a href="#"><span>3</span></a></li>
+								<li><a href="#"><span>4</span></a></li>
+								<li><a href="#"><span>5</span></a></li>
+								<li><a href="#"><span>Next</span></a></li>
+							</ul>
+						</div>
+				</tr>
+			</tfoot>
+			<tbody>
+				<c:forEach items="${students}" var="item" varStatus="status">
+					<tr 
+					<c:if test="${status.index % 2 eq 0}" >
+						class = 'alt'	
+					</c:if>
+					>
+						<td>${status.index + 1 }</td>
+						<td>${item.firstName}&nbsp;${item.middleName}&nbsp;${item.lastName}</td>
+						<td><fmt:formatDate value="${item.dob}" pattern="dd-MM-yyyy" /></td>
+						<td>
+							<jsp:useBean id="dt" class="java.util.Date" />
+							<c:if test="${item.dob ne null and (dt.year - item.dob.year) gt 0}">
+								${dt.year - item.dob.year} Y &nbsp;${dt.month - item.dob.month} M
+							</c:if>	 
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 
 </body>
 </html>

@@ -1,9 +1,8 @@
 #container {
-    background-color: #FFFFFF;
-    margin-left: auto;
-    margin-right: auto;
-    width: 995px;
-	
+	background-color: #FFFFFF;
+	margin-left: auto;
+	margin-right: auto;
+	width: 995px;
 }
 
 #header {
@@ -25,13 +24,13 @@
 }
 
 .side {
-	width: 15%;
+	width: 155px;
 	background-color: #D0D9E0;
 	float: left;
 }
 
 .content {
-	width: 82%;
+	width: 820px;
 	float: right;
 	padding-left: 10px;
 	padding-top: 10px;
@@ -89,7 +88,7 @@ a img {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	font: 14px/ 100% Arial, Helvetica, sans-serif;
+	font: 14px/100% Arial, Helvetica, sans-serif;
 	padding: .5em 2em .55em;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
 	-webkit-border-radius: .5em;
@@ -147,3 +146,4 @@ a img {
 	vertical-align: middle;
 	text-align: left;
 }
+

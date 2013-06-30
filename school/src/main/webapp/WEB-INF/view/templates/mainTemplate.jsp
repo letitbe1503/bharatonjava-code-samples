@@ -7,6 +7,9 @@
 <link href="<s:url value="/assets" />/css/styles.css"
 	rel="stylesheet" type="text/css" />
 
+<link href="<s:url value="/assets" />/css/datagrid.css"
+	rel="stylesheet" type="text/css" />
+
 <link href="<s:url value="/assets" />/css/redmond/jquery-ui-1.10.3.custom.css"
 	rel="stylesheet" type="text/css" />
 
