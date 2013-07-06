@@ -13,10 +13,13 @@
             http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
 
-	<bean id="studentService" class="com.bharatonjava.school.service.StudentService"/>
+	<bean id="studentService" class="com.bharatonjava.school.service.StudentService" />
 	
-	<bean id="studentDao" class="com.bharatonjava.school.dao.StudentDaoImpl"/>
+	<bean id="studentDao" class="com.bharatonjava.school.dao.StudentDaoImpl" />
 
+	<bean id="gradeDao" class="com.bharatonjava.school.dao.GradeDaoImpl" />
+
+	
 
 	<context:property-placeholder location="classpath:placeholder.properties" />
 
@@ -25,7 +28,8 @@
 		<property name="basename" value="messages" />
 	</bean>
 
-	<context:component-scan base-package="com.bharatonjava.school.web" />
+	<context:component-scan base-package="com.bharatonjava.school" />
+	
 	<context:annotation-config />
 
 	<mvc:annotation-driven />
@@ -76,14 +80,6 @@
 				<value>/WEB-INF/tiles/tiles.xml</value>
 			</list>
 		</property>
-	</bean>
-
-	<!-- multipart file upload support -->
-
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- one of the properties available; the maximum file size in bytes -->
-		<property name="maxUploadSize" value="999999999" />
 	</bean>
 
 </beans>
