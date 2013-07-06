@@ -7,6 +7,7 @@ public class StudentRegFormBean {
 	private String middleName;
 	private String lastName;
 	private String dob;
+	private Long gradeId;
 
 	public StudentRegFormBean() {
 	}
@@ -42,4 +43,13 @@ public class StudentRegFormBean {
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
+
+	public Long getGradeId() {
+		return gradeId;
+	}
+	
+	public void setGradeId(Long gradeId) {
+		this.gradeId = gradeId;
+	}
 }
+

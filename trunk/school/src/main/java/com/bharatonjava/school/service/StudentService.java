@@ -38,7 +38,6 @@ public class StudentService {
 	
 	@Transactional
 	public List<Grade> getAllGrades(){
-		
 		return gradeDao.getAllGrades();
 	}
 }

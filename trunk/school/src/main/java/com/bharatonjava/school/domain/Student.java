@@ -2,20 +2,6 @@ package com.bharatonjava.school.domain;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-@Entity
-@Table(name = "STUDENT")
 public class Student {
 
 	private Long studentId;
@@ -24,14 +10,11 @@ public class Student {
 	private String lastName;
 	private Date dob;
 
-	private Grade grade;
-	
+	private Long gradeId;
+
 	public Student() {
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "STUDENT_ID")
 	public Long getStudentId() {
 		return studentId;
 	}
@@ -40,7 +23,6 @@ public class Student {
 		this.studentId = studentId;
 	}
 
-	@Column(name = "FIRST_NAME", nullable = false)
 	public String getFirstName() {
 		return firstName;
 	}
@@ -49,7 +31,6 @@ public class Student {
 		this.firstName = firstName;
 	}
 
-	@Column(name = "MIDDLE_NAME")
 	public String getMiddleName() {
 		return middleName;
 	}
@@ -58,7 +39,6 @@ public class Student {
 		this.middleName = middleName;
 	}
 
-	@Column(name = "LAST_NAME")
 	public String getLastName() {
 		return lastName;
 	}
@@ -67,8 +47,6 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "DATE_OF_BIRTH")
 	public Date getDob() {
 		return dob;
 	}
@@ -76,15 +54,13 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "GRADE_ID")
-	public Grade getGrade() {
-		return grade;
+
+	public Long getGradeId() {
+		return gradeId;
 	}
-	
-	public void setGrade(Grade grade) {
-		this.grade = grade;
+
+	public void setGradeId(Long gradeId) {
+		this.gradeId = gradeId;
 	}
 
 	@Override
@@ -93,6 +69,5 @@ public class Student {
 				+ ", middleName=" + middleName + ", lastName=" + lastName
 				+ ", dob=" + dob + "]";
 	}
-	
-	
+
 }

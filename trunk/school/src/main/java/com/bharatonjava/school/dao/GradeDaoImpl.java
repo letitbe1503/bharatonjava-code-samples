@@ -2,30 +2,32 @@ package com.bharatonjava.school.dao;
 
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.bharatonjava.school.dao.mappers.GradeRowMapper;
 import com.bharatonjava.school.domain.Grade;
 
 public class GradeDaoImpl implements GradeDao {
 
 	private static final Log log = LogFactory.getLog(GradeDaoImpl.class);
-	
-	@Autowired
-	private SessionFactory sessionFactory;
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	private JdbcTemplate jdbcTemplate;
+
+	public void setDataSource(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	@Override
 	public List<Grade> getAllGrades() {
-		Session session = sessionFactory.openSession();
-		List<Grade> grades = session.createQuery("from Grade").list();
-		log.info("Returning "+ grades != null? grades.size() : 0 +" Grades");
+
+		List<Grade> grades = null;
+		String sql = "select * from grade";
+		grades = this.jdbcTemplate.query(sql, new GradeRowMapper());
+		log.info("Returning " + grades != null? grades.size() : 0 + " grades");
 		return grades;
 	}
 

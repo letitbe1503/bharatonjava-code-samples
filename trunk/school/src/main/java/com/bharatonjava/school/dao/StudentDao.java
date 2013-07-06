@@ -6,7 +6,7 @@ import com.bharatonjava.school.domain.Student;
 
 public interface StudentDao {
 
-	public void saveStudent(Student student);
+	public int saveStudent(Student student);
 	
 	public List<Student> getAllStudents();
 	

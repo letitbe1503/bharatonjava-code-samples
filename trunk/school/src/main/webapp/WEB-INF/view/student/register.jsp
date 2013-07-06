@@ -43,6 +43,16 @@
 				<td><form:input path="dob" /></td>
 			</tr>
 			<tr>
+				<td><label for="gradeId"><spring:message code="label.student.grade"/></label></td>
+				<td>
+					<form:select path="gradeId" cssStyle="width:125px;">
+						<form:option value="0" label=" -- Select -- " />
+						<form:options items="${fb.grades}" itemValue="gradeId" itemLabel="gradeName" />
+					</form:select>
+				</td>
+			</tr>
+			
+			<tr>
 				<td>&nbsp;</td>
 				<td><form:button value="Reset">Reset</form:button>&nbsp;<form:button>Submit</form:button></td>
 			</tr>
