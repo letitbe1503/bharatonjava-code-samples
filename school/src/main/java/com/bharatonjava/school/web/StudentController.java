@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bharatonjava.school.domain.Grade;
 import com.bharatonjava.school.domain.Student;
 import com.bharatonjava.school.service.StudentService;
 import com.bharatonjava.school.utils.Utils;
@@ -33,6 +33,9 @@ public class StudentController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(ViewConstants.REGISTER_NEW_STUDENT_PAGE);
 		mav.addObject("frmBean", new StudentRegFormBean());
+		GradesFormBean fb = new GradesFormBean();
+		fb.setGrades(studentService.getAllGrades());
+		mav.addObject("fb", fb);
 		return mav;
 	}
 
@@ -51,7 +54,7 @@ public class StudentController {
 		s.setMiddleName(formBean.getMiddleName());
 		s.setLastName(formBean.getLastName());
 		s.setDob(Utils.convertStringToDate(formBean.getDob()));
-
+		s.setGradeId(formBean.getGradeId());
 		studentService.saveStudent(s);
 
 		mav.setViewName(ViewConstants.REGISTER_STUDENT_SUCCESS);
@@ -80,9 +83,15 @@ public class StudentController {
 		fb.setGrades(studentService.getAllGrades());
 		mav.addObject("fb", fb);
 
-
 		mav.addObject("students", students);
 		return mav;
 	}
 
+	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+	public ModelAndView showStudentProfile(@RequestParam Long id){
+		ModelAndView mav = new ModelAndView();
+		System.out.println("------> "+ id);
+		mav.setViewName(ViewConstants.STUDENT_PROFILE);
+		return mav;
+	}
 }

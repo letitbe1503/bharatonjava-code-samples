@@ -12,7 +12,9 @@
 <body>
 	<a href='<c:url value="/student/register" />'>Student Registration</a>
 	<br />
+	<br />
 	<a href='<c:url value="/student/list" />'>All Students</a>
+	<br />
 	<br />
 </body>
 </html>

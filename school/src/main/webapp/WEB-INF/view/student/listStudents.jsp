@@ -41,8 +41,8 @@
 				<td>Choose Grade</td>
 				<td>
 					<form:select path="grade" cssStyle="width:125px;">
-						<form:option value="0" label="Select" />
-						<form:options items="${grades}" itemValue="gradeId" itemLabel="gradeName" />
+						<form:option value="0" label=" -- Select -- " />
+						<form:options items="${fb.grades}" itemValue="gradeId" itemLabel="gradeName" />
 					</form:select>
 				</td>
 				<td>
@@ -86,7 +86,13 @@
 						class = 'alt'	
 					</c:if>>
 						<td>${status.index + 1 }</td>
-						<td>${item.firstName}&nbsp;${item.middleName}&nbsp;${item.lastName}</td>
+						<td>
+						<spring:url value="/student/profile?id=${item.studentId}" var="studentProfileUrl" />
+						<a href="${studentProfileUrl}" style="text-decoration:none;">
+						${item.firstName}&nbsp;${item.middleName}&nbsp;${item.lastName}
+						</a>
+						
+						</td>
 						<td><fmt:formatDate value="${item.dob}" pattern="dd-MM-yyyy" /></td>
 						<td><jsp:useBean id="dt" class="java.util.Date" /> <c:if
 								test="${item.dob ne null and (dt.year - item.dob.year) gt 0}">

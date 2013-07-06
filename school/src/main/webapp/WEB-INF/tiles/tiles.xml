@@ -46,4 +46,11 @@
 			value="/WEB-INF/view/student/listStudents.jsp" />
 	</definition>
 
+	<definition name="studentProfile" extends="template">
+		<put-attribute name="title" value="Student's Profile" />
+		<put-attribute name="content"
+			value="/WEB-INF/view/student/profile.jsp" />
+	</definition>
+
+
 </tiles-definitions>

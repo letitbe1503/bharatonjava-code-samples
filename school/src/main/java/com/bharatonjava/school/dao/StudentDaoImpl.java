@@ -2,46 +2,48 @@ package com.bharatonjava.school.dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.sql.DataSource;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.bharatonjava.school.dao.mappers.StudentRowMapper;
 import com.bharatonjava.school.domain.Student;
 
 public class StudentDaoImpl implements StudentDao {
 
-	@Autowired
-	private SessionFactory sessionFactory;
+	private static final Log log = LogFactory.getLog(StudentDaoImpl.class);
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	private JdbcTemplate jdbcTemplate;
+
+	public void setDataSource(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	public StudentDaoImpl() {
 	}
 
 	@Override
-	public void saveStudent(Student student) {
-
-		Session session = this.sessionFactory.openSession();
-		session.save(student);
-		session.flush();
-		session.close();
+	public int saveStudent(Student student) {
+		String sql = "insert into student (first_name, middle_name,last_name,date_of_birth, grade_id)"
+				+ " values(?,?,?,?,?)";
+		int count = this.jdbcTemplate.update(
+				sql,
+				new Object[] { student.getFirstName(),
+						student.getMiddleName(), student.getLastName(),
+						student.getDob(), student.getGradeId() });
+		return count;
 	}
 
 	@Override
 	public List<Student> getAllStudents() {
-		Session session = this.sessionFactory.openSession();
-		List<Student> lst = null;
-		// lst = session.createQuery("from Student").list();
-		Criteria crit = session.createCriteria(Student.class);
-		crit.addOrder(Order.asc("firstName"));
-		lst = crit.list();
-		session.flush();
-		session.close();
-		return lst;
+		List<Student> students = null;
+		String sql = "select * from student";
+		students = this.jdbcTemplate.query(sql, new StudentRowMapper());
+		log.info("Returning " + students != null ? students.size()
+				: 0 + " Students");
+		return students;
 	}
 
 }
