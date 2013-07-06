@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bharatonjava.school.domain.Grade;
 import com.bharatonjava.school.domain.Student;
 import com.bharatonjava.school.service.StudentService;
 import com.bharatonjava.school.utils.Utils;
 import com.bharatonjava.school.utils.ViewConstants;
+import com.bharatonjava.school.web.formbean.GradesFormBean;
 import com.bharatonjava.school.web.formbean.StudentRegFormBean;
 
 @Controller
@@ -58,13 +60,29 @@ public class StudentController {
 	
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ModelAndView showListStudentsPage() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(ViewConstants.LIST_STUDENTS);
+		List<Student> students = studentService.getAllStudents();
+		GradesFormBean fb = new GradesFormBean();
+		fb.setGrades(studentService.getAllGrades());
+		mav.addObject("fb", fb);
+		//mav.addObject("students", students);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	public ModelAndView listStudents() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(ViewConstants.LIST_STUDENTS);
 		List<Student> students = studentService.getAllStudents();
+		GradesFormBean fb = new GradesFormBean();
+		fb.setGrades(studentService.getAllGrades());
+		mav.addObject("fb", fb);
+
+
 		mav.addObject("students", students);
 		return mav;
 	}
-	
 
 }

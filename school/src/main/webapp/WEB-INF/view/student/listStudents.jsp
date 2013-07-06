@@ -12,8 +12,8 @@
 <body>
 
 	<h3>All Students</h3>
-	
-<%--	
+
+	<%--	
 	<table class="dataGrid">
 		<thead>
 			<tr>
@@ -34,6 +34,25 @@
 	</table>
  --%>
 	<!-- datagrid test -->
+
+	<form:form commandName="fb" method="POST">
+		<table>
+			<tr>
+				<td>Choose Grade</td>
+				<td>
+					<form:select path="grade" cssStyle="width:125px;">
+						<form:option value="0" label="Select" />
+						<form:options items="${grades}" itemValue="gradeId" itemLabel="gradeName" />
+					</form:select>
+				</td>
+				<td>
+					<input type="submit" value="List Students">
+				</td>
+			</tr>
+		</table>
+
+	</form:form>
+
 
 	<div class="datagrid">
 		<table>
@@ -62,20 +81,17 @@
 			</tfoot>
 			<tbody>
 				<c:forEach items="${students}" var="item" varStatus="status">
-					<tr 
-					<c:if test="${status.index % 2 eq 0}" >
+					<tr
+						<c:if test="${status.index % 2 eq 0}" >
 						class = 'alt'	
-					</c:if>
-					>
+					</c:if>>
 						<td>${status.index + 1 }</td>
 						<td>${item.firstName}&nbsp;${item.middleName}&nbsp;${item.lastName}</td>
 						<td><fmt:formatDate value="${item.dob}" pattern="dd-MM-yyyy" /></td>
-						<td>
-							<jsp:useBean id="dt" class="java.util.Date" />
-							<c:if test="${item.dob ne null and (dt.year - item.dob.year) gt 0}">
+						<td><jsp:useBean id="dt" class="java.util.Date" /> <c:if
+								test="${item.dob ne null and (dt.year - item.dob.year) gt 0}">
 								${dt.year - item.dob.year} Y &nbsp;${dt.month - item.dob.month} M
-							</c:if>	 
-						</td>
+							</c:if></td>
 					</tr>
 				</c:forEach>
 			</tbody>
