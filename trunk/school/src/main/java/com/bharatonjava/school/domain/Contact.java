@@ -1,16 +1,7 @@
-package com.bharatonjava.school.web.formbean;
+package com.bharatonjava.school.domain;
 
+public class Contact {
 
-public class StudentRegFormBean {
-
-	private String firstName;
-	private String middleName;
-	private String lastName;
-	private String dob;
-	private String gender;
-	private Long gradeId;
-	
-	// contact
 	private Long contactId;
 	private String building;
 	private String street;
@@ -22,56 +13,7 @@ public class StudentRegFormBean {
 	private Long alternatePhoneNumber;
 	private String email;
 	
-	
-	public StudentRegFormBean() {
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getDob() {
-		return dob;
-	}
-
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-	
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-	
-	public Long getGradeId() {
-		return gradeId;
-	}
-	
-	public void setGradeId(Long gradeId) {
-		this.gradeId = gradeId;
+	public Contact() {
 	}
 
 	public Long getContactId() {
@@ -145,7 +87,14 @@ public class StudentRegFormBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Contact [contactId=" + contactId + ", building=" + building
+				+ ", street=" + street + ", area=" + area + ", city=" + city
+				+ ", state=" + state + ", phoneNumber=" + phoneNumber
+				+ ", alternatePhoneNumber=" + alternatePhoneNumber + ", email="
+				+ email + "]";
+	}
 	
 }
-

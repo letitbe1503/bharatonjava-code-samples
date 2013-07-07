@@ -23,6 +23,10 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
+	<bean id="contactDao" class="com.bharatonjava.school.dao.ContactDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<context:property-placeholder location="classpath:placeholder.properties" />
 
 	<bean id="messageSource"
@@ -35,8 +39,8 @@
 	<context:annotation-config />
 
 	<mvc:annotation-driven />
+	
 	<mvc:resources mapping="/assets/**" location="/assets/" />
-
 
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">

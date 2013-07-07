@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>Student's Profile</h3>
+<div class="page-header">Student's Profile</div>
 </body>
 </html>
