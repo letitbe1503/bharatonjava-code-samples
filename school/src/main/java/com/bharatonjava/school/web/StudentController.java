@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bharatonjava.school.domain.Contact;
 import com.bharatonjava.school.domain.Student;
 import com.bharatonjava.school.service.StudentService;
 import com.bharatonjava.school.utils.Utils;
@@ -55,8 +56,19 @@ public class StudentController {
 		s.setLastName(formBean.getLastName());
 		s.setDob(Utils.convertStringToDate(formBean.getDob()));
 		s.setGradeId(formBean.getGradeId());
-		studentService.saveStudent(s);
 
+		Contact c = new Contact();
+		c.setBuilding(formBean.getBuilding());
+		c.setStreet(formBean.getStreet());
+		c.setArea(formBean.getArea());
+		c.setCity(formBean.getCity());
+		c.setState(formBean.getState());
+		c.setPhoneNumber(formBean.getPhoneNumber());
+		c.setAlternatePhoneNumber(formBean.getAlternatePhoneNumber());
+		c.setEmail(formBean.getEmail());
+		
+		studentService.registerStudent(s,c);
+		
 		mav.setViewName(ViewConstants.REGISTER_STUDENT_SUCCESS);
 		return mav;
 	}
@@ -66,7 +78,6 @@ public class StudentController {
 	public ModelAndView showListStudentsPage() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName(ViewConstants.LIST_STUDENTS);
-		List<Student> students = studentService.getAllStudents();
 		GradesFormBean fb = new GradesFormBean();
 		fb.setGrades(studentService.getAllGrades());
 		mav.addObject("fb", fb);

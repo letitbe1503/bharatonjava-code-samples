@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bharatonjava.school.dao.ContactDao;
 import com.bharatonjava.school.dao.GradeDao;
 import com.bharatonjava.school.dao.StudentDao;
+import com.bharatonjava.school.domain.Contact;
 import com.bharatonjava.school.domain.Grade;
 import com.bharatonjava.school.domain.Student;
 
@@ -18,6 +20,9 @@ public class StudentService {
 	@Autowired
 	private GradeDao gradeDao;
 
+	@Autowired
+	private ContactDao contactDao;
+	
 	public void setStudentDao(StudentDao studentDao) {
 		this.studentDao = studentDao;
 	}
@@ -26,9 +31,14 @@ public class StudentService {
 		this.gradeDao = gradeDao;
 	}
 
+	public void setContactDao(ContactDao contactDao) {
+		this.contactDao = contactDao;
+	}
+	
 	@Transactional
-	public void saveStudent(Student student) {
+	public void registerStudent(Student student, Contact contact) {
 		studentDao.saveStudent(student);
+		contactDao.saveContact(contact);
 	}
 	
 	@Transactional

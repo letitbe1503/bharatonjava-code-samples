@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<h3>All Students</h3>
+	<div class="page-header">Students by Grade</div>
 
 	<%--	
 	<table class="dataGrid">
