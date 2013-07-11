@@ -1,17 +1,46 @@
+DROP SCHEMA IF EXISTS TEST;
+
+CREATE SCHEMA TEST;
+
+USE TEST;
 
 DROP TABLE IF EXISTS STUDENT;
 DROP TABLE IF EXISTS GRADE;
+DROP TABLE IF EXISTS FEE;
 DROP TABLE IF EXISTS CONTACT;
 
 create table grade(grade_id bigint(20) PRIMARY KEY, grade_name varchar(255));
 
-insert into grade (grade_id,grade_name) values (1,'FIRST');
-insert into grade (grade_id,grade_name) values (2,'SECOND');
-insert into grade (grade_id,grade_name) values (3,'THIRD');
-insert into grade (grade_id,grade_name) values (4,'FOURTH');
+insert into grade (grade_id,grade_name) values (1,'PLAYGOURP');
+insert into grade (grade_id,grade_name) values (2,'JUNIOR KG');
+insert into grade (grade_id,grade_name) values (3,'SENIOR KG');
+insert into grade (grade_id,grade_name) values (4,'FIRST');
+insert into grade (grade_id,grade_name) values (5,'SECOND');
+insert into grade (grade_id,grade_name) values (6,'THIRD');
+insert into grade (grade_id,grade_name) values (7,'FOURTH');
+insert into grade (grade_id,grade_name) values (8,'FIFTH');
+insert into grade (grade_id,grade_name) values (9,'SIXTH');
+insert into grade (grade_id,grade_name) values (10,'SEVENTH');
+insert into grade (grade_id,grade_name) values (11,'EIGHTH');
+insert into grade (grade_id,grade_name) values (12,'NINETH');
+insert into grade (grade_id,grade_name) values (13,'TENTH');
+
+
+
+CREATE TABLE ENUMERATIONS(
+	ENUM_ID INT(4) PRIMARY KEY,
+	ENUM_GROUP VARCHAR(256),
+	ENUM_VALUE VARCHAR(256)
+);
+
+INSERT INTO ENUMERATIONS(ENUM_ID,ENUM_GROUP,ENUM_VALUE) VALUES(1,'FEE_COMMENT','Tution Fee');
+INSERT INTO ENUMERATIONS(ENUM_ID,ENUM_GROUP,ENUM_VALUE) VALUES(2,'FEE_COMMENT','Celebration Fee');
+INSERT INTO ENUMERATIONS(ENUM_ID,ENUM_GROUP,ENUM_VALUE) VALUES(3,'FEE_COMMENT','Books Fee');
+INSERT INTO ENUMERATIONS(ENUM_ID,ENUM_GROUP,ENUM_VALUE) VALUES(4,'FEE_COMMENT','Dress Fee');
 
 CREATE TABLE CONTACT(
 	CONTACT_ID BIGINT(20) NOT NULL AUTO_INCREMENT,
+	STUDENT_ID BIGINT(20),
 	BUILDING VARCHAR(255),
 	STREET VARCHAR(255),
 	AREA VARCHAR(255),
@@ -29,7 +58,18 @@ CREATE TABLE student (
 	GRADE_ID bigint(20) DEFAULT NULL,
 	CONTACT_ID BIGINT(20) DEFAULT NULL,
 	PRIMARY KEY (STUDENT_ID),
-	CONSTRAINT FK_STUDENT_GRADE FOREIGN KEY (GRADE_ID) REFERENCES grade (GRADE_ID),
-	CONSTRAINT FK_STUDENT_ADDRESS FOREIGN KEY (CONTACT_ID) REFERENCES CONTACT(CONTACT_ID)
+	CONSTRAINT FK_STUDENT_GRADE FOREIGN KEY (GRADE_ID) REFERENCES grade (GRADE_ID)
 );
 
+CREATE TABLE FEE(
+	FEE_ID BIGINT(20) PRIMARY KEY AUTO_INCREMENT,
+	STUDENT_ID BIGINT(20) NOT NULL,
+	FEE DOUBLE(10,2),
+	FEE_TYPE INT(4),
+	COMMENT_TEXT VARCHAR(255) DEFAULT NULL
+);
+
+ALTER TABLE STUDENT ADD CONSTRAINT FK_STUDENT_ADDRESS FOREIGN KEY (CONTACT_ID) REFERENCES CONTACT(CONTACT_ID);
+ALTER TABLE CONTACT ADD CONSTRAINT FK_CONTACT_STUDENT FOREIGN KEY (STUDENT_ID) REFERENCES STUDENT(STUDENT_ID);
+ALTER TABLE FEE ADD CONSTRAINT FK_FEE_STUDENT FOREIGN KEY (STUDENT_ID) REFERENCES STUDENT(STUDENT_ID);
+ALTER TABLE FEE ADD CONSTRAINT FK_FEE_ENUMERATIONS FOREIGN KEY (FEE_TYPE) REFERENCES ENUMERATIONS(ENUM_ID);
