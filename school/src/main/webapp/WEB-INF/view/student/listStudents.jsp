@@ -38,7 +38,7 @@
 	<form:form commandName="fb" method="POST">
 		<table>
 			<tr>
-				<td>Choose Grade</td>
+				<td id="gradeLabel">Choose Grade</td>
 				<td>
 					<form:select path="grade" cssStyle="width:125px;">
 						<form:option value="0" label=" -- Select -- " />
@@ -46,7 +46,12 @@
 					</form:select>
 				</td>
 				<td>
-					<input type="submit" value="List Students">
+					<input id="gradeSubmitBtn" type="submit" value="List Students">
+				</td>
+				<td>
+					<div id="box" class="message">
+						<div id="msg">test msg</div>
+					</div>
 				</td>
 			</tr>
 		</table>

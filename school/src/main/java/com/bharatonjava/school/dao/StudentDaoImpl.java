@@ -45,5 +45,16 @@ public class StudentDaoImpl implements StudentDao {
 				: 0 + " Students");
 		return students;
 	}
+	
+	
+	public Student getStudentById(Long studentId){
+		
+		Student s = null;
+		String sql = "select * from student where student_id=?";
+		s = (Student) this.jdbcTemplate.queryForObject(sql, new StudentRowMapper(), new Object[]{studentId});
+		log.info(s);
+		return s;
+	}
+	
 
 }
