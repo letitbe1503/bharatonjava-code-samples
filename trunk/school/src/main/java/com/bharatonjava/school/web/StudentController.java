@@ -99,10 +99,13 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
-	public ModelAndView showStudentProfile(@RequestParam Long id){
+	public ModelAndView showStudentProfile(@RequestParam(value = "id") Long studentId){
 		ModelAndView mav = new ModelAndView();
-		System.out.println("------> "+ id);
+		System.out.println("------> "+ studentId);
 		mav.setViewName(ViewConstants.STUDENT_PROFILE);
+		
+		Student s = studentService.getStudentById(studentId);
+		mav.addObject("student", s);
 		return mav;
 	}
 }

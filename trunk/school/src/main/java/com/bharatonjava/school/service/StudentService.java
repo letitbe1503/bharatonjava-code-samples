@@ -50,4 +50,9 @@ public class StudentService {
 	public List<Grade> getAllGrades(){
 		return gradeDao.getAllGrades();
 	}
+	
+	@Transactional
+	public Student getStudentById(Long studentId){
+		return studentDao.getStudentById(studentId);
+	}
 }
