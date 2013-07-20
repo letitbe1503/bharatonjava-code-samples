@@ -22,11 +22,16 @@
 <body>
 	<div class="page-header">Student Registration Form</div>
 
-
 	<form:form modelAttribute="frmBean" action="" method="POST">
 		<fieldset>
-		<legend>Student Details</legend>
+			<legend>Student Details</legend>
 			<table>
+				<thead>
+					<tr>
+						<td width="120">&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+				</thead>
 				<tr>
 					<td><label for="firstName"><spring:message
 								code="label.student.firstName" /></label></td>
@@ -70,6 +75,12 @@
 		<fieldset>
 			<legend>Contact Details</legend>
 			<table>
+				<thead>
+					<tr>
+						<td width="120">&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+				</thead>
 				<%-- Contact details --%>
 				<tr>
 					<td><label for="building"><spring:message

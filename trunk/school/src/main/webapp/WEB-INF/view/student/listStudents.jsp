@@ -46,7 +46,8 @@
 					</form:select>
 				</td>
 				<td>
-					<input id="gradeSubmitBtn" type="submit" value="List Students">
+				<%-- <input id="gradeSubmitBtn" type="submit" value="List Students"> --%>
+				<button id="gradeSubmitBtn" type="submit" >List Students</button>
 				</td>
 				<td>
 					<div id="box" class="message">

@@ -32,20 +32,20 @@
 	text-align: left;
 }
 
-.side a{
+.side a {
 	border: 0px none grey;
 	background-color: #F6F4F0;
 	margin: 2px 2px 2px 2px;
-	padding:3px;
+	padding: 3px;
 	text-decoration: none;
 	display: block;
-	color:#545453;
+	color: #545453;
 	font-weight: bold;
 }
 
-.side a:hover{
-	background-color:#FFFFFF;
-	color:#000000;
+.side a:hover {
+	background-color: #FFFFFF;
+	color: #000000;
 }
 
 .content {
@@ -66,12 +66,12 @@
 	color: #767676;
 }
 
-.content .page-header{
+.content .page-header {
 	font-weight: bold;
 	font-size: 16px;
 	width: 100%;
-	background-color:#FFFFFF;
-	color:#000000;
+	background-color: #FFFFFF;
+	color: #000000;
 	padding: 5px 0px 5px 5px;
 }
 
@@ -180,3 +180,20 @@ a img {
 	text-align: left;
 }
 
+/* FORM BUTTON STYLING */
+
+form button {
+	border: 1px solid #AEBFCC;
+	background-color: #AEBFCC;
+	color: white;
+}
+
+form button:hover {
+	background-color: #3E4D59;
+}
+
+form button:active {
+	background-color: #13171B;
+}
+
+/* FORM BUTTON STYLING ENDS*/
