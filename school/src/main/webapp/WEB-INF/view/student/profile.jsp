@@ -6,25 +6,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
 </head>
 <body>
 	<div class="page-header">Student's Profile</div>
 
 
 
-	<table border="1" width="100%">
+	<table border="0" width="100%" cellpadding="5" style="text-align: left;">
+		<thead>
+			<tr>
+				<td width="150">&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+		</thead>
 		<tr>
-			<td><strong>Student Id</strong></td>
+			<td><label>Student Id</label></td>
 			<td>${student.studentId}</td>
 		</tr>
-
 		<tr>
-			<td><strong>Student Name</strong></td>
+			<td><label>Student Name</label></td>
 			<td>${student.firstName}&nbsp;${student.middleName}&nbsp;${student.lastName}</td>
 		</tr>
 		<tr>
-			<td><strong>Date of Birth</strong></td>
+			<td><label>Date of Birth</label></td>
 			<td><fmt:formatDate value="${student.dob}" type="date" /></td>
 		</tr>
 		<tr>
