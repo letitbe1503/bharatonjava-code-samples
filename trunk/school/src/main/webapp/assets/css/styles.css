@@ -109,6 +109,7 @@ H3 {
 	background-color: #FFB8A6;
 	color: #000000;
 	padding: 5px 5px 5px 5px;
+	margin-bottom: 0px;
 }
 
 a img {
@@ -197,3 +198,19 @@ form button:active {
 }
 
 /* FORM BUTTON STYLING ENDS*/
+
+/*Notice board on home page*/
+.notice-board{
+	/* background-image: url('${noticeBoardImgUrl}'); */
+	background-image: url("../../assets/images/NoticeBoard.jpg");
+	background-repeat: no-repeat;
+	width: 360px;
+	height:360px;
+	vertical-align: top;
+	text-align: left;
+	padding-top: 60px;
+	padding-left: 20px;
+	padding-right:20px;
+	font-size: 10px;
+}
+/*Notice board on home page ends*/

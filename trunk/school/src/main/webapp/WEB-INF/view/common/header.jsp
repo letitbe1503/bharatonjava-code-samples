@@ -13,7 +13,10 @@
 <body>
 
 	<spring:url value="/assets/images/school-logo.png" var="schoolLogo" />
-	<img alt="" src="${schoolLogo}" style="margin:20px">
+	<spring:url value="/home" var="schoolHome" />
 	
+	<a href="${schoolHome}">
+	<img alt="" src="${schoolLogo}" style="margin:20px" />
+	</a>
 </body>
 </html>
