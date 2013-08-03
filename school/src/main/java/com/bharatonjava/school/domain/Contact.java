@@ -3,6 +3,7 @@ package com.bharatonjava.school.domain;
 public class Contact {
 
 	private Long contactId;
+	private Long studentId;
 	private String building;
 	private String street;
 	private String area;
@@ -24,6 +25,14 @@ public class Contact {
 		this.contactId = contactId;
 	}
 
+	public Long getStudentId() {
+		return studentId;
+	}
+	
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
+	}
+	
 	public String getBuilding() {
 		return building;
 	}
@@ -90,11 +99,13 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return "Contact [contactId=" + contactId + ", building=" + building
-				+ ", street=" + street + ", area=" + area + ", city=" + city
-				+ ", state=" + state + ", phoneNumber=" + phoneNumber
-				+ ", alternatePhoneNumber=" + alternatePhoneNumber + ", email="
-				+ email + "]";
+		return "Contact [contactId=" + contactId + ", studentId=" + studentId
+				+ ", building=" + building + ", street=" + street + ", area="
+				+ area + ", city=" + city + ", state=" + state
+				+ ", phoneNumber=" + phoneNumber + ", alternatePhoneNumber="
+				+ alternatePhoneNumber + ", email=" + email + "]";
 	}
+
+	
 	
 }
