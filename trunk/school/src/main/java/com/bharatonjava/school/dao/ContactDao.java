@@ -6,7 +6,7 @@ import com.bharatonjava.school.domain.Contact;
 
 public interface ContactDao {
 
-	public int saveContact(Contact contact);
+	public Long saveContact(Contact contact);
 	
 	public int deleteContact(Long contactId);
 	
@@ -15,4 +15,6 @@ public interface ContactDao {
 	public Contact getContactById(Long contactId);
 	
 	public List<Contact> getAllContacts();
+	
+	public Contact getContactByStudentId(Long studentId);
 }
