@@ -2,6 +2,21 @@ package com.bharatonjava.school.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name = "STUDENT")
 public class Student {
 
 	private Long studentId;
@@ -9,12 +24,16 @@ public class Student {
 	private String middleName;
 	private String lastName;
 	private Date dob;
-
-	private Long gradeId;
-
+	
+	private Grade grade;
+	private Contact contact;
+	
 	public Student() {
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "STUDENT_ID")
 	public Long getStudentId() {
 		return studentId;
 	}
@@ -23,6 +42,7 @@ public class Student {
 		this.studentId = studentId;
 	}
 
+	@Column(name = "FIRST_NAME")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -31,14 +51,17 @@ public class Student {
 		this.firstName = firstName;
 	}
 
+	@Column(name = "MIDDLE_NAME")
 	public String getMiddleName() {
 		return middleName;
 	}
-
+	
 	public void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
-
+	
+	
+	@Column(name = "LAST_NAME")
 	public String getLastName() {
 		return lastName;
 	}
@@ -47,27 +70,39 @@ public class Student {
 		this.lastName = lastName;
 	}
 
+	@Temporal(value = TemporalType.DATE)
+	@Column(name = "DATE_OF_BIRTH")
 	public Date getDob() {
 		return dob;
 	}
-
+	
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-
-	public Long getGradeId() {
-		return gradeId;
+	
+	@ManyToOne( fetch = FetchType.LAZY)
+	public Grade getGrade() {
+		return grade;
 	}
-
-	public void setGradeId(Long gradeId) {
-		this.gradeId = gradeId;
+	
+	public void setGrade(Grade grade) {
+		this.grade = grade;
 	}
-
+	
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "student", cascade = CascadeType.ALL)
+	public Contact getContact() {
+		return contact;
+	}
+	
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+	
 	@Override
 	public String toString() {
 		return "Student [studentId=" + studentId + ", firstName=" + firstName
-				+ ", middleName=" + middleName + ", lastName=" + lastName
-				+ ", dob=" + dob + "]";
+				+ ", lastName=" + lastName + ", grade=" + grade + "]";
 	}
-
+	
+	
 }

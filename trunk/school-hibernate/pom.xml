@@ -10,6 +10,7 @@
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<aspectj.version>1.7.3</aspectj.version>
 		<tiles.version>3.0.1</tiles.version>
+		<hibernate.version>3.6.9.Final</hibernate.version>
 	</properties>
 
 	<dependencies>
@@ -168,15 +169,27 @@
 		</dependency>
 
 		<!-- Hibernate 4 Jars -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-core</artifactId> -->
+		<!-- <version>4.2.2.Final</version> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-validator</artifactId> -->
+		<!-- <version>4.2.0.Final</version> -->
+		<!-- </dependency> -->
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.2.2.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
+
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.2.0.Final</version>
+			<groupId>javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
 		</dependency>
 
 		<!-- Database driver -->

@@ -36,21 +36,22 @@
 
 	<definition name="regSuccess" extends="template">
 		<put-attribute name="title" value="Student Registration Success" />
-		<put-attribute name="content"
-			value="/WEB-INF/view/student/registrationSuccess.jsp" />
+		<put-attribute name="content" value="/WEB-INF/view/student/registrationSuccess.jsp" />
 	</definition>
 
 	<definition name="allStudents" extends="template">
 		<put-attribute name="title" value="All Students" />
-		<put-attribute name="content"
-			value="/WEB-INF/view/student/listStudents.jsp" />
+		<put-attribute name="content" value="/WEB-INF/view/student/listStudents.jsp" />
 	</definition>
 
 	<definition name="studentProfile" extends="template">
 		<put-attribute name="title" value="Student's Profile" />
-		<put-attribute name="content"
-			value="/WEB-INF/view/student/profile.jsp" />
+		<put-attribute name="content" value="/WEB-INF/view/student/profile.jsp" />
 	</definition>
 
+	<definition name="gradeMaster" extends="template">
+		<put-attribute name="title" value="Grade Master" />
+		<put-attribute name="content" value="/WEB-INF/view/master/gradeMaster.jsp" />
+	</definition>
 
 </tiles-definitions>

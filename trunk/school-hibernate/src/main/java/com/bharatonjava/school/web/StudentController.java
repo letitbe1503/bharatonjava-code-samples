@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bharatonjava.school.domain.Contact;
+import com.bharatonjava.school.domain.Grade;
 import com.bharatonjava.school.domain.Student;
 import com.bharatonjava.school.service.StudentService;
 import com.bharatonjava.school.utils.Utils;
@@ -55,14 +56,18 @@ public class StudentController {
 		s.setMiddleName(formBean.getMiddleName());
 		s.setLastName(formBean.getLastName());
 		s.setDob(Utils.convertStringToDate(formBean.getDob()));
-		s.setGradeId(formBean.getGradeId());
+
+		Grade g = new Grade();
+		g.setGradeId(formBean.getGradeId());
+		
+		s.setGrade(g);
 
 		Contact c = new Contact();
 		c.setBuilding(formBean.getBuilding());
 		c.setStreet(formBean.getStreet());
 		c.setArea(formBean.getArea());
-		c.setCity(formBean.getCity());
-		c.setState(formBean.getState());
+		//c.setCity(formBean.getCity());
+		//c.setState(formBean.getState());
 		c.setPhoneNumber(formBean.getPhoneNumber());
 		c.setAlternatePhoneNumber(formBean.getAlternatePhoneNumber());
 		c.setEmail(formBean.getEmail());
