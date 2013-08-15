@@ -31,29 +31,37 @@ public class ContactDaoImpl implements ContactDao {
 
 	@Override
 	public int deleteContact(Long contactId) {
+		Session session = sessionFactory.getCurrentSession();
+		Contact c = (Contact) session.get(Contact.class, contactId);
+		session.delete(c);
 		return 0;
 	}
 
 	@Override
 	public int updateContact(Contact contact) {
-		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		session.update(contact);
 		return 0;
 	}
 
 	@Override
 	public Contact getContactById(Long contactId) {
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		Contact c = (Contact) session.get(Contact.class, contactId);
+		return c;
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Contact> getAllContacts() {
-
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		List<Contact> contacts = session.createQuery("from Contact").list(); 
+		return contacts;
 	}
 
 	@Override
 	public Contact getContactByStudentId(Long studentId) {
-
+		
 		return null;
 	}
 
