@@ -12,5 +12,7 @@
 <body>
 	<a href='<c:url value="/student/register" />'>Student Registration</a>
 	<a href='<c:url value="/student/list" />'>All Students</a>
+	<div style="color:blue;">Masters</div>
+	<a href='<c:url value="/master/addGrade" />'>Grade Master</a>
 </body>
 </html>

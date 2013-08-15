@@ -1,22 +1,39 @@
 package com.bharatonjava.school.domain;
 
+import javax.annotation.Generated;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "CONTACT")
 public class Contact {
 
 	private Long contactId;
-	private Long studentId;
 	private String building;
 	private String street;
 	private String area;
-	private String city;
-	private String state;
-	
 	private Long phoneNumber;
 	private Long alternatePhoneNumber;
 	private String email;
-	
+
+	private City city;
+	private Student student;
+
 	public Contact() {
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "CONTACT_ID")
 	public Long getContactId() {
 		return contactId;
 	}
@@ -25,14 +42,7 @@ public class Contact {
 		this.contactId = contactId;
 	}
 
-	public Long getStudentId() {
-		return studentId;
-	}
-	
-	public void setStudentId(Long studentId) {
-		this.studentId = studentId;
-	}
-	
+	@Column(name = "BUILDING")
 	public String getBuilding() {
 		return building;
 	}
@@ -41,6 +51,7 @@ public class Contact {
 		this.building = building;
 	}
 
+	@Column(name = "STREET")
 	public String getStreet() {
 		return street;
 	}
@@ -49,6 +60,7 @@ public class Contact {
 		this.street = street;
 	}
 
+	@Column(name = "AREA")
 	public String getArea() {
 		return area;
 	}
@@ -57,22 +69,18 @@ public class Contact {
 		this.area = area;
 	}
 
-	public String getCity() {
+	//@OneToOne(fetch = FetchType.LAZY, mappedBy = "contact", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "CITY_ID")
+	public City getCity() {
 		return city;
 	}
 
-	public void setCity(String city) {
+	public void setCity(City city) {
 		this.city = city;
 	}
 
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
+	@Column(name = "PHONE")
 	public Long getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -81,6 +89,7 @@ public class Contact {
 		this.phoneNumber = phoneNumber;
 	}
 
+	@Column(name = "PHONE_ALT")
 	public Long getAlternatePhoneNumber() {
 		return alternatePhoneNumber;
 	}
@@ -89,6 +98,7 @@ public class Contact {
 		this.alternatePhoneNumber = alternatePhoneNumber;
 	}
 
+	@Column(name = "EMAIL")
 	public String getEmail() {
 		return email;
 	}
@@ -96,16 +106,15 @@ public class Contact {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	@Override
-	public String toString() {
-		return "Contact [contactId=" + contactId + ", studentId=" + studentId
-				+ ", building=" + building + ", street=" + street + ", area="
-				+ area + ", city=" + city + ", state=" + state
-				+ ", phoneNumber=" + phoneNumber + ", alternatePhoneNumber="
-				+ alternatePhoneNumber + ", email=" + email + "]";
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
+	public Student getStudent() {
+		return student;
+	}
+	
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
-	
-	
 }

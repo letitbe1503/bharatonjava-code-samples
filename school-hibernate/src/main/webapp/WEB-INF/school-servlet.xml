@@ -14,22 +14,14 @@
 
 
 	<bean id="studentService" class="com.bharatonjava.school.service.StudentService" />
+	<bean id="masterService" class="com.bharatonjava.school.service.MasterService"/>
 
-	<bean id="studentDao" class="com.bharatonjava.school.dao.StudentDaoImpl" >
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<bean id="gradeDao" class="com.bharatonjava.school.dao.GradeDaoImpl">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<bean id="contactDao" class="com.bharatonjava.school.dao.ContactDaoImpl">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<bean id="enumerationDao" class="com.bharatonjava.school.dao.EnumerationDaoImpl">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
+	<bean id="studentDao" class="com.bharatonjava.school.dao.StudentDaoImpl" />
+	<bean id="gradeDao" class="com.bharatonjava.school.dao.GradeDaoImpl" /> 
+	<bean id="contactDao" class="com.bharatonjava.school.dao.ContactDaoImpl" />
+	<bean id="enumerationDao" class="com.bharatonjava.school.dao.EnumerationDaoImpl" />
+	<bean id="masterDao" class="com.bharatonjava.school.dao.MasterDaoImpl"/>
+	
 
 	<context:property-placeholder location="classpath:placeholder.properties" />
 
@@ -43,7 +35,7 @@
 	<context:annotation-config />
 
 	<mvc:annotation-driven />
-	
+
 	<mvc:resources mapping="/assets/**" location="/assets/" />
 
 	<bean id="propertyConfigurer"
@@ -62,17 +54,31 @@
 		<property name="maxActive" value="20" />
 	</bean>
 
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+		<property name="configurationClass">
+			<value>org.hibernate.cfg.AnnotationConfiguration</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${jdbc.dialect}</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.default_schema">school</prop>
+			</props>
+		</property>
+	</bean>
+
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
-	<!-- <bean id="transactionManager" -->
-	<!-- class="org.springframework.orm.hibernate4.HibernateTransactionManager"> -->
-	<!-- <property name="sessionFactory" ref="sessionFactory" /> -->
-	<!-- </bean> -->
 
 	<!-- <bean id="sessionFactory" -->
 	<!-- class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> -->
