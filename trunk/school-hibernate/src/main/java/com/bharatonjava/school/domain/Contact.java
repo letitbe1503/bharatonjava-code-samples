@@ -1,6 +1,5 @@
 package com.bharatonjava.school.domain;
 
-import javax.annotation.Generated;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
