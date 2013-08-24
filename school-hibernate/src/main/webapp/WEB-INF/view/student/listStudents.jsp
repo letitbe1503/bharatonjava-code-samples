@@ -8,6 +8,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('#fb select').change(function() {
+	   // go($('#grade').val());
+	});
+	
+});
+
+</script>
 </head>
 <body>
 

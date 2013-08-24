@@ -108,6 +108,16 @@
 					<td><form:input path="state" /></td>
 				</tr>
 				<tr>
+					<td><label for="state"><spring:message
+								code="label.student.phoneNumber" /></label></td>
+					<td><form:input path="phoneNumber" /></td>
+				</tr>
+				<tr>
+					<td><label for="state"><spring:message
+								code="label.student.alternatePhoneNumber" /></label></td>
+					<td><form:input path="alternatePhoneNumber" /></td>
+				</tr>
+				<tr>
 					<td>&nbsp;</td>
 					<td><button value="reset" disabled="disabled">Reset</button>&nbsp;<form:button>Submit</form:button></td>
 				</tr>
