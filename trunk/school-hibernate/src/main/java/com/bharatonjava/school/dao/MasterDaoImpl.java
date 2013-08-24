@@ -38,5 +38,13 @@ public class MasterDaoImpl implements MasterDao {
 		log.info("Returning " + grades != null ? grades.size() : 0 + " grades");
 		return grades;
 	}
+	
+	@Override
+	public void deleteGrade(Long gradeId){
+		log.info("deleteGrade gradeId: "+gradeId);
+		Session session = sessionFactory.getCurrentSession();
+		Grade g = (Grade) session.get(Grade.class, gradeId);
+		session.delete(g);
+	}
 
 }

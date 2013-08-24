@@ -33,8 +33,26 @@
 			<td><fmt:formatDate value="${student.dob}" type="date" /></td>
 		</tr>
 		<tr>
-			<td></td>
-			<td></td>
+			<td>Grade</td>
+			<td>${student.grade.gradeName }</td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td>
+				<table>
+					<tr><td>${student.contact.building},&nbsp;${student.contact.street},&nbsp;${student.contact.area}</td></tr>
+					<tr><td>${student.contact.city}&nbsp;${student.contact.city.state}</td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>Contact Number</td>
+			<td>
+				<table cellpadding="5" style="color:white">
+					<tr style="background-color:grey"><td><strong>Primary</strong></td><td width="150">${student.contact.phoneNumber}</td></tr>
+					<tr style="background-color:grey"><td><strong>Alternate</strong></td><td width="150">${student.contact.alternatePhoneNumber}</td></tr>
+				</table>
+			</td>
 		</tr>
 	</table>
 </body>

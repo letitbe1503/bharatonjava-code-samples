@@ -67,7 +67,7 @@
 			<props>
 				<prop key="hibernate.dialect">${jdbc.dialect}</prop>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.default_schema">school</prop>
 			</props>
 		</property>
@@ -79,21 +79,6 @@
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
-	<!-- <bean id="sessionFactory" -->
-	<!-- class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"> -->
-	<!-- <property name="dataSource" ref="dataSource" /> -->
-	<!-- <property name="packagesToScan" value="com.bharatonjava.school.domain" 
-		/> -->
-	<!-- <property name="hibernateProperties"> -->
-	<!-- <props> -->
-	<!-- <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> -->
-	<!-- <prop key="hibernate.show_sql">true</prop> -->
-	<!-- <prop key="hibernate.format_sql">false</prop> -->
-	<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
-	<!-- </props> -->
-	<!-- </property> -->
-	<!-- </bean> -->
 
 	<!-- Tiles configuration -->
 

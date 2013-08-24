@@ -31,4 +31,9 @@ public class MasterService {
 	public List<Grade> getAllGrades(){
 		return masterDao.getAllGrades();
 	}
+	
+	@Transactional
+	public void deleteGrade(Long gradeId){
+		masterDao.deleteGrade(gradeId);
+	}
 }

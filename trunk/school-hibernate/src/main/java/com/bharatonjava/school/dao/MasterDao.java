@@ -9,4 +9,6 @@ public interface MasterDao {
 	public void createGrade(Grade grade);
 	
 	public List<Grade> getAllGrades();
+	
+	public void deleteGrade(Long gradeId);
 }

@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@include file="/WEB-INF/view/common/taglibIncludes.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,7 +12,7 @@
 <body>
 	<div class="page-header">Grade Master</div>
 
-	<form:form modelAttribute="frmBean" action="" method="POST" >
+	<form:form modelAttribute="frmBean" action="addGrade" method="POST">
 		<fieldset>
 			<legend>Grade Master</legend>
 			<table>
@@ -36,23 +33,37 @@
 				</tr>
 			</table>
 		</fieldset>
-		
+
 	</form:form>
 
-	<table cellpadding="5" border="1">
-		<tr class="even">
-			<th width="80">Grade Id</th>
-			<th width="200">Grade Name</th>
-			<th width="80">Action</th>
-		</tr>
-		<c:forEach  items="${grades}" var="g" varStatus="status">
-			<tr>
-				<td>${g.gradeId}</td>
-				<td>${g.gradeName}</td>
-				<td><a href="#">Delete</a></td>
-			</tr>
-		</c:forEach>
-	</table>
+	<div class="datagrid">
+		<table>
+			<thead>
+				<tr>
+					<th width="20">Sr.No.</th>
+					<th width="20">Grade Id</th>
+					<th width="200">Grade Name</th>
+					<th width="80">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${grades}" var="g" varStatus="status">
+					<tr
+						<c:if test="${status.index % 2 eq 0}" >
+						class = 'alt'	
+					</c:if>>
+						<td>${status.index + 1 }</td>
+						<td>${g.gradeId}</td>
+						<td>${g.gradeName}</td>
+						<td><input
+							onclick="javascript:deleteGrade('deleteGrade?id=${g.gradeId}');"
+							value="Delete" type="button"></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
 
 
 </body>
