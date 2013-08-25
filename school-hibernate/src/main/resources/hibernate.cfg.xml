@@ -9,5 +9,6 @@
 		<mapping class="com.bharatonjava.school.domain.State" />
 		<mapping class="com.bharatonjava.school.domain.City" />
 		<mapping class="com.bharatonjava.school.domain.Contact" />
+		<mapping class="com.bharatonjava.school.domain.Fee" />
 	</session-factory>
 </hibernate-configuration>

@@ -1,6 +1,8 @@
 package com.bharatonjava.school.domain;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -27,6 +30,8 @@ public class Student {
 	
 	private Grade grade;
 	private Contact contact;
+	
+	private Set<Fee> fees = new HashSet<Fee>(0);
 	
 	public Student() {
 	}
@@ -96,6 +101,15 @@ public class Student {
 	
 	public void setContact(Contact contact) {
 		this.contact = contact;
+	}
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "student")
+	public Set<Fee> getFees() {
+		return fees;
+	}
+	
+	public void setFees(Set<Fee> fees) {
+		this.fees = fees;
 	}
 	
 	@Override
