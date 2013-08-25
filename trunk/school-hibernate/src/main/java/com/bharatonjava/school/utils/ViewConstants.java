@@ -7,4 +7,5 @@ public interface ViewConstants {
 	String REGISTER_STUDENT_SUCCESS = "regSuccess";
 	String LIST_STUDENTS = "allStudents";
 	String STUDENT_PROFILE = "studentProfile";
+	String STUDENT_FEE = "studentFee";
 }

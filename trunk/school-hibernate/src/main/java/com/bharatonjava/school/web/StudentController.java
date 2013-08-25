@@ -1,21 +1,25 @@
 package com.bharatonjava.school.web;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bharatonjava.school.domain.Contact;
+import com.bharatonjava.school.domain.Fee;
 import com.bharatonjava.school.domain.Grade;
 import com.bharatonjava.school.domain.Student;
 import com.bharatonjava.school.service.StudentService;
 import com.bharatonjava.school.utils.Utils;
 import com.bharatonjava.school.utils.ViewConstants;
+import com.bharatonjava.school.web.formbean.FeeFormBean;
 import com.bharatonjava.school.web.formbean.GradesFormBean;
 import com.bharatonjava.school.web.formbean.StudentRegFormBean;
 
@@ -111,6 +115,41 @@ public class StudentController {
 		
 		Student s = studentService.getStudentById(studentId);
 		mav.addObject("student", s);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/{studentId}/fee", method = RequestMethod.GET)
+	public ModelAndView showFeePage(@PathVariable(value = "studentId") Long studentId){
+		ModelAndView mav = new ModelAndView();
+		System.out.println("###------> "+ studentId);
+		mav.setViewName(ViewConstants.STUDENT_FEE);
+		FeeFormBean fb = new FeeFormBean();
+		fb.setStudentId(studentId);
+		fb.setFeeDate(Utils.convertDateToString(new Date()));
+		mav.addObject("fb", fb);
+		mav.addObject("fees", studentService.getFeeByStudentId(studentId));
+		return mav;
+	}
+	
+	@RequestMapping(value = "/{studentId}/fee", method = RequestMethod.POST)
+	public ModelAndView processStudentFeeForm(@PathVariable(value = "studentId") Long studentId, FeeFormBean feeFormBean){
+		ModelAndView mav = new ModelAndView();
+		System.out.println("###------> "+ studentId);
+		System.out.println("###------> "+ feeFormBean);
+		mav.setViewName(ViewConstants.STUDENT_FEE);
+		
+		Fee fee = new Fee();
+		fee.setFeeDate(Utils.convertStringToDate(feeFormBean.getFeeDate()));
+		fee.setAmount(feeFormBean.getAmount());
+		fee.setComment(feeFormBean.getComment());
+		Student s = new Student();
+		s.setStudentId(feeFormBean.getStudentId());
+		fee.setStudent(s);
+		studentService.saveStudentFee(fee);
+		FeeFormBean fb = new FeeFormBean();
+		fb.setFeeDate(Utils.convertDateToString(new Date()));
+		mav.addObject("fb", fb);
+		mav.addObject("fees", studentService.getFeeByStudentId(studentId));
 		return mav;
 	}
 }

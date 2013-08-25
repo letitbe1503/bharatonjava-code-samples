@@ -53,5 +53,10 @@
 		<put-attribute name="title" value="Grade Master" />
 		<put-attribute name="content" value="/WEB-INF/view/master/gradeMaster.jsp" />
 	</definition>
+	
+	<definition name="studentFee" extends="template">
+		<put-attribute name="title" value="Student Fee" />
+		<put-attribute name="content" value="/WEB-INF/view/fee/studentFee.jsp" />
+	</definition>
 
 </tiles-definitions>

@@ -79,23 +79,9 @@ $(document).ready(function() {
 					<th>Name</th>
 					<th>Date of Birth</th>
 					<th>Age</th>
+					<th>Action</th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="4"><div id="paging">
-							<ul>
-								<li><a href="#"><span>Previous</span></a></li>
-								<li><a href="#" class="active"><span>1</span></a></li>
-								<li><a href="#"><span>2</span></a></li>
-								<li><a href="#"><span>3</span></a></li>
-								<li><a href="#"><span>4</span></a></li>
-								<li><a href="#"><span>5</span></a></li>
-								<li><a href="#"><span>Next</span></a></li>
-							</ul>
-						</div>
-				</tr>
-			</tfoot>
 			<tbody>
 				<c:forEach items="${students}" var="item" varStatus="status">
 					<tr
@@ -115,6 +101,10 @@ $(document).ready(function() {
 								test="${item.dob ne null and (dt.year - item.dob.year) gt 0}">
 								${dt.year - item.dob.year} Y &nbsp;${dt.month - item.dob.month} M
 							</c:if></td>
+							
+						<td>
+						<spring:url value="/student/${item.studentId}/fee" var="feeUrl"/>
+						<a href="${feeUrl}">Fee</a></td>	
 					</tr>
 				</c:forEach>
 			</tbody>
