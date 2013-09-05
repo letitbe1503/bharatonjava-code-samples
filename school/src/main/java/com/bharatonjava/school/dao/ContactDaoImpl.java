@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator;
 
 import com.bharatonjava.school.dao.mappers.ContactRowMapper;
 import com.bharatonjava.school.domain.Contact;
@@ -25,6 +26,9 @@ public class ContactDaoImpl implements ContactDao {
 
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		SQLErrorCodeSQLExceptionTranslator tr = new SQLErrorCodeSQLExceptionTranslator();
+		tr.setDataSource(dataSource);
+		this.jdbcTemplate.setExceptionTranslator(tr);
 	}
 
 	@Override
