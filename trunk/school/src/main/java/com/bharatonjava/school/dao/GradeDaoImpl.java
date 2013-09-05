@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator;
 
 import com.bharatonjava.school.dao.mappers.GradeRowMapper;
 import com.bharatonjava.school.domain.Grade;
@@ -19,6 +20,9 @@ public class GradeDaoImpl implements GradeDao {
 
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		SQLErrorCodeSQLExceptionTranslator tr = new SQLErrorCodeSQLExceptionTranslator();
+		tr.setDataSource(dataSource);
+		this.jdbcTemplate.setExceptionTranslator(tr);
 	}
 
 	@Override
