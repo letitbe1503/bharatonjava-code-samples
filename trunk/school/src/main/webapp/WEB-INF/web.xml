@@ -51,4 +51,19 @@
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
  
+ 	<security-constraint>
+    <display-name>Restrict direct access to the /resources folder.</display-name>
+    <web-resource-collection>
+        <web-resource-name>The /resources folder.</web-resource-name>
+        <url-pattern>/resources/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint />
+	</security-constraint> 
+ 
+ 	<error-page>
+    	<exception-type>javax.faces.application.ViewExpiredException</exception-type>
+    	<location>/home.xhtml</location>
+	</error-page>
+	
+ 
 </web-app>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/composite"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsf/core">
+
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+				<h:panelGrid columns="3">
+					<p:outputLabel value="Grade Id" for="gradeId" />
+					<p:inputText id="gradeId" value="#{gradesBean.gradeId}">
+						<c:validateRequired for="gradeId"/>
+						<c:validateLongRange for="gradeId" maximum="100" />
+						<c:convertNumber/>
+					</p:inputText>
+					<p:message for="gradeId" />
+
+					<p:outputLabel value="Grade Name" for="gradeName" />
+					<p:inputText id="gradeName" value="#{gradesBean.gradeName}">
+						<c:validateLength for="gradeName" maximum="150" minimum="1" />
+					</p:inputText>
+					<p:message for="gradeName" />
+
+					<p:spacer width="10" height="10" />
+					<h:panelGroup>
+						<p:commandButton value="Reset" ajax="false"
+							actionListener="#{gradesBean.submitGradesForm()}" />
+						<p:commandButton value="Save" ajax="false"
+							actionListener="#{gradesBean.submitGradesForm()}" />
+					</h:panelGroup>
+				</h:panelGrid>
+			</h:form>
+
+			<h:form>
+				<p:dataTable value="#{gradesBean.grades}" var="g">
+					<p:column headerText="Grade Id">
+						<p:outputLabel value="#{g.gradeId}" />
+					</p:column>
+					<p:column headerText="Grade Name">
+						<p:outputLabel value="#{g.gradeName}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+
+		</ui:define>
+
+	</ui:composition>
+
+</h:body>
+
+</html>

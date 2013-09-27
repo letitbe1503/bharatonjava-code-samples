@@ -7,9 +7,8 @@ import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator;
 
-import com.bharatonjava.school.dao.mappers.EnumerationRowMapper;
+import com.bharatonjava.school.dao.EnumerationRowMapper;
 import com.bharatonjava.school.domain.Enumeration;
 
 public class EnumerationDaoImpl implements EnumerationDao{
@@ -20,9 +19,6 @@ public class EnumerationDaoImpl implements EnumerationDao{
 
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
-		SQLErrorCodeSQLExceptionTranslator tr = new SQLErrorCodeSQLExceptionTranslator();
-		tr.setDataSource(dataSource);
-		this.jdbcTemplate.setExceptionTranslator(tr);
 	}
 
 	

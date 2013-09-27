@@ -12,15 +12,21 @@ import org.springframework.stereotype.Repository;
 import com.bharatonjava.school.domain.Grade;
 
 @Repository
-public class GradeDaoImpl implements GradeDao {
+public class MasterDaoImpl implements MasterDao {
 
-	private static final Log log = LogFactory.getLog(GradeDaoImpl.class);
+	private static final Log log = LogFactory.getLog(MasterDaoImpl.class);
 
 	@Autowired
-    private SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
+	}
+
+	@Override
+	public void createGrade(Grade grade) {
+		Session session = sessionFactory.getCurrentSession();
+		session.save(grade);
 	}
 
 	@Override
@@ -28,9 +34,17 @@ public class GradeDaoImpl implements GradeDao {
 
 		List<Grade> grades = null;
 		Session session = sessionFactory.getCurrentSession();
-		grades = session.createQuery("from Grade").list(); 
-		log.info("Returning " + grades != null? grades.size() : 0 + " grades");
+		grades = session.createQuery("from Grade").list();
+		log.info("Returning " + grades != null ? grades.size() : 0 + " grades");
 		return grades;
+	}
+	
+	@Override
+	public void deleteGrade(Long gradeId){
+		log.info("deleteGrade gradeId: "+gradeId);
+		Session session = sessionFactory.getCurrentSession();
+		Grade g = (Grade) session.get(Grade.class, gradeId);
+		session.delete(g);
 	}
 
 }

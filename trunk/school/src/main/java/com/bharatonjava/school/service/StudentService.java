@@ -9,6 +9,7 @@ import com.bharatonjava.school.dao.ContactDao;
 import com.bharatonjava.school.dao.GradeDao;
 import com.bharatonjava.school.dao.StudentDao;
 import com.bharatonjava.school.domain.Contact;
+import com.bharatonjava.school.domain.Fee;
 import com.bharatonjava.school.domain.Grade;
 import com.bharatonjava.school.domain.Student;
 
@@ -54,5 +55,16 @@ public class StudentService {
 	@Transactional
 	public Student getStudentById(Long studentId){
 		return studentDao.getStudentById(studentId);
+	}
+	
+	@Transactional
+	public List<Fee> getFeeByStudentId(Long studentId){
+		List<Fee> fees = studentDao.getFeeByStudentId(studentId); 
+		return fees;
+	}
+	
+	@Transactional
+	public void saveStudentFee(Fee fee){
+		studentDao.saveStudentFee(fee);
 	}
 }
