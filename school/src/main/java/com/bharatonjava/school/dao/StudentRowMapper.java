@@ -1,4 +1,4 @@
-package com.bharatonjava.school.dao.mappers;
+package com.bharatonjava.school.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

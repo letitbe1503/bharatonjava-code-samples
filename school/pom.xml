@@ -10,7 +10,7 @@
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<aspectj.version>1.7.3</aspectj.version>
 		<tiles.version>3.0.1</tiles.version>
-		<jsf.version>2.2.2</jsf.version>
+		<jsf.version>2.2.3</jsf.version>
 	</properties>
 
 	<dependencies>
