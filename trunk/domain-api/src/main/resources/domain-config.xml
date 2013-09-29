@@ -1,0 +1,32 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="domainEntry" class="com.bharatonjava.domain.DomainEntry" />
+
+	<bean id="cache" class="com.bharatonjava.domain.cache.CacheImpl"
+		init-method="initialize" >
+		<property name="" />
+	</bean>	
+
+	<bean id="connectionManager" class="com.bharatonjava.domain.cache.ConnectionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		autowire-candidate="true" autowire="byName">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<context:property-placeholder location="classpath:placeholder.properties" />
+
+</beans>
