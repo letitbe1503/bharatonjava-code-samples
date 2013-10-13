@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+				<p:panel id="patientRegistrationPanel" header="Patient Registration Form">
+
+					<h:panelGrid columns="3">
+
+						<p:outputLabel for="firstName" value="First Name: *" />
+						<p:inputText id="firstName" value="#{patient.patient.firstName}" required="true">
+						</p:inputText> 
+						<p:message for="firstName" />
+
+						<p:outputLabel for="middleName" value="Middle Name: *" />
+						<p:inputText id="middleName" value="#{patient.patient.middleName}" />
+						<p:message for="middleName" />
+
+						<p:outputLabel for="lastName" value="Last Name: *" />
+						<p:inputText id="lastName" value="#{patient.patient.lastName}" />
+						<p:message for="lastName" />
+
+						<p:outputLabel for="dob" value="Date of Birth: *" />
+						<p:calendar id="dob" value="#{patient.patient.dob}"
+							pattern="dd-MM-yyyy" navigator="true" required="true"
+							yearRange="c-100:c-20" />
+						<p:message for="dob" />
+
+						<p:spacer width="10" height="10" />
+						<p:commandButton value="Clear"
+							actionListener="#{patient.resetPatientForm}" ajax="true" update="patientRegistrationPanel"/>
+						<p:commandButton value="Register"
+							actionListener="#{patient.registerPatient}" />
+					</h:panelGrid>
+				</p:panel>
+
+				<ui:debug />
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>
