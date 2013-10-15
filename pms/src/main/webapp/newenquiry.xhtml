@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+				<p:panel id="patientRegistrationPanel" header="New Enquiry Form">
+
+					<h:panelGrid columns="3">
+
+						<p:outputLabel for="partyName" value="Party Name:" />
+						<p:inputText id="partyName" value="#{enquiry.enquiry.partyName}"
+							required="true" size="50" />
+
+						<p:message for="partyName" />
+
+						<p:outputLabel for="bhk" value="BHK:" />
+						<p:selectOneMenu id="bhk" value="#{enquiry.enquiry.bhk}">
+							<f:selectItems value="#{enquiry.bhks}" />
+						</p:selectOneMenu>
+						<p:message for="bhk" />
+
+						<p:outputLabel for="maritalStatus" value="Marital Status:" />
+						<p:selectOneMenu id="maritalStatus"
+							value="#{enquiry.enquiry.maritalStatus}">
+							<f:selectItems value="#{enquiry.maritalStatuses}" />
+						</p:selectOneMenu>
+						<p:message for="maritalStatus" />
+
+						<p:outputLabel for="mobileNumber" value="Mobile Number" />
+						<p:inputText id="mobileNumber"
+							value="#{enquiry.enquiry.mobileNumber}" size="10" maxlength="10" />
+						<p:message for="mobileNumber" />
+
+						<p:outputLabel for="email" value="Email:" />
+						<p:inputText id="email" value="#{enquiry.enquiry.email}"
+							maxlength="200" size="50" />
+						<p:message for="email" />
+
+						<p:outputLabel for="comments" value="Comments:" />
+
+						<table style="border-collapse: collapse;">
+							<tr>
+								<td><p:inputTextarea id="comments" cols="80" rows="10"
+										maxlength="400" minQueryLength="0" counter="counter"
+										counterTemplate="{0} characters remaining." value="#{enquiry.enquiry.comments}"/></td>
+							</tr>
+							<tr>
+								<td><h:outputText id="counter" /></td>
+							</tr>
+						</table>
+						<p:message for="comments" />
+
+						<p:commandButton value="Save" action="#{enquiry.saveEnquiry}" />
+
+					</h:panelGrid>
+				</p:panel>
+
+				<ui:debug />
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

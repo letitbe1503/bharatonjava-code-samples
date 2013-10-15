@@ -17,9 +17,13 @@
 	</application>
 
 	<managed-bean>
-		<managed-bean-name>patient</managed-bean-name>
-		<managed-bean-class>com.bharatonjava.hospital.web.PatientRegistrationBean</managed-bean-class>
+		<managed-bean-name>enquiry</managed-bean-name>
+		<managed-bean-class>com.bharatonjava.pms.web.EnquiryBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>enquiryService</property-name>
+			<value>#{enquiryService}</value>
+		</managed-property>
 	</managed-bean>
 
 	<navigation-rule>
@@ -28,12 +32,21 @@
 			<to-view-id>/home.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
 	<navigation-rule>
 		<navigation-case>
-			<from-outcome>patientRegistration</from-outcome>
-			<to-view-id>/patientRegistration.xhtml</to-view-id>
+			<from-outcome>newEnquiry</from-outcome>
+			<to-view-id>/newenquiry.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>viewEnquiries</from-outcome>
+			<to-view-id>/listEnquires.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+
+
 </faces-config>
