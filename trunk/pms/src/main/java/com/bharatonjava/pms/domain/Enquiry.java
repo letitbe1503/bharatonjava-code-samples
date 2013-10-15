@@ -1,25 +1,31 @@
 package com.bharatonjava.pms.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ENQUIRY")
 public class Enquiry {
 
 	private Long enquiryId;
-	private String name;
+	private Date enquiryDate;
+	private String partyName;
 	private Integer bhk;
 	private String maritalStatus;
 	private Long mobileNumber;
 	private String email;
 	private String currentAddress;
 	private String permanentAddress;
-
+	private String comments;
+	
 	public Enquiry() {
 	}
 
@@ -34,15 +40,25 @@ public class Enquiry {
 		this.enquiryId = enquiryId;
 	}
 
-	@Column(name = "NAME")
-	public String getName() {
-		return name;
+	@Column(name = "ENQUIRY_DATE")
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getEnquiryDate() {
+		return enquiryDate;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	
+	public void setEnquiryDate(Date enquiryDate) {
+		this.enquiryDate = enquiryDate;
 	}
-
+	
+	@Column(name = "PARTY_NAME")
+	public String getPartyName() {
+		return partyName;
+	}
+	
+	public void setPartyName(String partyName) {
+		this.partyName = partyName;
+	}
+	
 	@Column(name = "BHK")
 	public Integer getBhk() {
 		return bhk;
@@ -97,4 +113,13 @@ public class Enquiry {
 		this.permanentAddress = permanentAddress;
 	}
 
+	@Column(name = "COMMENTS")
+	public String getComments() {
+		return comments;
+	}
+	
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	
 }

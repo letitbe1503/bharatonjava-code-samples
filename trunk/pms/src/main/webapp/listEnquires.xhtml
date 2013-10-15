@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+				<p:panel id="patientRegistrationPanel" header="Enquiries">
+
+					<p:dataTable id="enquiries" var="e" value="#{enquiry.enquiries}" >
+						<f:facet name="header">  
+        				    Recent Enquiries
+        				</f:facet>
+
+						<p:column sortBy="enquiryId" headerText="Enquiry Id">
+							<h:outputText value="#{e.enquiryId}" />
+						</p:column>
+
+						<p:column sortBy="partyName" headerText="Party Name">
+							<h:outputText value="#{e.partyName}" />
+						</p:column>
+
+						<p:column sortBy="bhk" headerText="BHK">
+							<h:outputText value="#{e.bhk}" />
+						</p:column>
+						
+						<p:column sortBy="mobileNumber" headerText="Mobile Number">
+							<h:outputText value="#{e.mobileNumber}" />
+						</p:column>
+						
+						<p:column sortBy="email" headerText="email">
+							<h:outputText value="#{e.email}" />
+						</p:column>
+						
+						<p:column sortBy="comments" headerText="comments">
+							<h:outputText value="#{e.comments}" />
+						</p:column>
+					</p:dataTable>
+
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

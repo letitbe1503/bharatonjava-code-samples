@@ -11,8 +11,8 @@
 		<h:form>
 			<p:panelGrid columns="1" style="width:200px; text-align:left;">
 				<h:outputLabel value="Master"/>
-				<h:commandLink value="Patient Registration" action="patientRegistration" />
-				<h:commandLink value="Grade Master" action="grades" />
+				<h:commandLink value="New Enquiry" action="newEnquiry" />
+				<h:commandLink value="View Enquiries" action="viewEnquiries" actionListener="#{enquiry.getAllEnquiries}"/>
 			</p:panelGrid>
 		</h:form>
 	</ui:composition>
