@@ -18,13 +18,18 @@ public class Enquiry {
 	private Long enquiryId;
 	private Date enquiryDate;
 	private String partyName;
-	private Integer bhk;
 	private String maritalStatus;
+	private Integer bhk;
+	private Date possessionDate;
+	private Double appriximateBudget;
 	private Long mobileNumber;
+	private Long residencePhoneNumber;
+	private Long officePhoneNumber;
 	private String email;
 	private String currentAddress;
 	private String permanentAddress;
 	private String comments;
+	private String remarks;
 	
 	public Enquiry() {
 	}
@@ -41,7 +46,7 @@ public class Enquiry {
 	}
 
 	@Column(name = "ENQUIRY_DATE")
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	public Date getEnquiryDate() {
 		return enquiryDate;
 	}
@@ -120,6 +125,52 @@ public class Enquiry {
 	
 	public void setComments(String comments) {
 		this.comments = comments;
+	}
+	
+	@Column(name = "BUDGET")
+	public Double getAppriximateBudget() {
+		return appriximateBudget;
+	}
+	
+	public void setAppriximateBudget(Double appriximateBudget) {
+		this.appriximateBudget = appriximateBudget;
+	}
+	
+	@Column(name = "OFFICE_PHONE_NO")
+	public Long getOfficePhoneNumber() {
+		return officePhoneNumber;
+	}
+	
+	public void setOfficePhoneNumber(Long officePhoneNumber) {
+		this.officePhoneNumber = officePhoneNumber;
+	}
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "POSSESSION_DATE")
+	public Date getPossessionDate() {
+		return possessionDate;
+	}
+	
+	public void setPossessionDate(Date possessionDate) {
+		this.possessionDate = possessionDate;
+	}
+	
+	@Column(name = "REMARKS")
+	public String getRemarks() {
+		return remarks;
+	}
+	
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+	
+	@Column(name = "RESIDENCE_PHONE_NO")
+	public Long getResidencePhoneNumber() {
+		return residencePhoneNumber;
+	}
+	
+	public void setResidencePhoneNumber(Long residencePhoneNumber) {
+		this.residencePhoneNumber = residencePhoneNumber;
 	}
 	
 }
