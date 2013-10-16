@@ -6,7 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bharatonjava.pms.domain.Enquiry;
@@ -32,7 +31,7 @@ public class EnquiryDaoImpl implements EnquiryDao {
 		//List<Enquiry> lst = session.createQuery("from Enquiry e").list();
 		List<Enquiry> lst = null;
 		Criteria crit = session.createCriteria(Enquiry.class);
-		crit.addOrder(Order.desc("enquiryDate"));
+		crit.addOrder(Order.desc("enquiryId"));
 		lst = crit.list();
 		return lst;
 	}
