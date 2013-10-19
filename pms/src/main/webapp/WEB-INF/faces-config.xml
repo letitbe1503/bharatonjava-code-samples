@@ -26,6 +26,16 @@
 		</managed-property>
 	</managed-bean>
 
+	<managed-bean>
+		<managed-bean-name>emp</managed-bean-name>
+		<managed-bean-class>com.bharatonjava.pms.web.EmployeeBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>employeeService</property-name>
+			<value>#{employeeService}</value>
+		</managed-property>
+	</managed-bean>
+
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>home</from-outcome>
@@ -47,6 +57,26 @@
 		</navigation-case>
 	</navigation-rule>
 
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>viewEnquiry</from-outcome>
+			<to-view-id>/viewEnquiry.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>employees</from-outcome>
+			<to-view-id>/employees.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>employeeForm</from-outcome>
+			<to-view-id>/employeeForm.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 
 </faces-config>

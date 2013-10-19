@@ -1,20 +1,26 @@
 package com.bharatonjava.pms.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ENQUIRY")
-public class Enquiry {
-
+public class Enquiry implements Serializable{
+	
+	private static final long serialVersionUID = -2629405371061373577L;
+	
 	private Long enquiryId;
 	private Date enquiryDate;
 	private String partyName;
@@ -30,6 +36,8 @@ public class Enquiry {
 	private String permanentAddress;
 	private String comments;
 	private String remarks;
+	
+	private Employee employee;
 	
 	public Enquiry() {
 	}
@@ -173,4 +181,13 @@ public class Enquiry {
 		this.residencePhoneNumber = residencePhoneNumber;
 	}
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "EMPLOYEE_ID", nullable = false)
+	public Employee getEmployee() {
+		return employee;
+	}
+	
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 }

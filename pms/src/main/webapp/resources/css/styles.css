@@ -197,36 +197,7 @@ a img {
 	text-align: left;
 }
 
-/* FORM BUTTON STYLING */
-
-form button {
-	border: 1px solid #AEBFCC;
-	background-color: #AEBFCC;
-	color: white;
+.labelColumn{
+	font-weight: bold;
+	background-color: #E6E4E5;
 }
-
-form button:hover {
-	background-color: #3E4D59;
-}
-
-form button:active {
-	background-color: #13171B;
-}
-
-/* FORM BUTTON STYLING ENDS*/
-
-/*Notice board on home page*/
-.notice-board{
-	/* background-image: url('${noticeBoardImgUrl}'); */
-	background-image: url("../../assets/images/NoticeBoard.jpg");
-	background-repeat: no-repeat;
-	width: 360px;
-	height:360px;
-	vertical-align: top;
-	text-align: left;
-	padding-top: 60px;
-	padding-left: 20px;
-	padding-right:20px;
-	font-size: 10px;
-}
-/*Notice board on home page ends*/

@@ -14,53 +14,61 @@
 
 			<h:form>
 				<p:panel id="patientRegistrationPanel" header="Enquiries">
-					
-					
-					
-					<p:dataTable id="enquiriesTable" var="e" value="#{enquiry.enquiries}" >
+
+					<p:dataTable id="enquiriesTable" var="e"
+						value="#{enquiry.enquiries}" paginator="true" rows="10"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15">
 						<f:facet name="header">  
         				    Recent Enquiries
         				</f:facet>
 
-						<p:column sortBy="enquiryId" headerText="Enquiry Id" >
-							<h:outputText value="#{e.enquiryId}"/>
+						<p:column sortBy="enquiryId" headerText="Enquiry Id">
+
+							<p:commandLink actionListener="#{enquiry.viewEnquiry(e.enquiryId)}"  ajax="false" action="viewEnquiry">
+								<h:outputText value="#{e.enquiryId}" />
+							</p:commandLink>
+							
 						</p:column>
-						
-						<p:column sortBy="enquiryDate" headerText="Enquiry Date" >
-							<h:outputText value="#{e.enquiryDate}">
-							</h:outputText>
+
+						<p:column sortBy="enquiryDate" headerText="Enquiry Date">
+							<h:outputText value="#{e.enquiryDate}" />
 						</p:column>
 
 						<p:column sortBy="partyName" headerText="Party Name">
-							<h:outputText value="#{e.partyName}" />
+						
+							<p:commandLink actionListener="#{enquiry.viewEnquiry(e.enquiryId)}" ajax="false" action="viewEnquiry">
+								<h:outputText value="#{e.partyName}" />
+							</p:commandLink>
+							
 						</p:column>
 
 						<p:column sortBy="bhk" headerText="BHK">
 							<h:outputText value="#{e.bhk}" />
 						</p:column>
-						
+
 						<p:column sortBy="mobileNumber" headerText="Mobile Number">
 							<h:outputText value="#{e.mobileNumber}" />
 						</p:column>
 
-						<p:column sortBy="residencePhoneNumber" headerText="Residence Phone">
+						<p:column sortBy="residencePhoneNumber"
+							headerText="Residence Phone">
 							<h:outputText value="#{e.residencePhoneNumber}" />
 						</p:column>
-						
+
 						<p:column sortBy="officePhoneNumber" headerText="Office Phone">
 							<h:outputText value="#{e.officePhoneNumber}" />
 						</p:column>
-						
-						
+
 						<p:column sortBy="email" headerText="email">
 							<h:outputText value="#{e.email}" />
 						</p:column>
-						
+
 						<p:column sortBy="comments" headerText="comments">
 							<h:outputText value="#{e.comments}" />
 						</p:column>
 					</p:dataTable>
-				
+
 				</p:panel>
 			</h:form>
 		</ui:define>

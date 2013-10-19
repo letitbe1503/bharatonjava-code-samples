@@ -7,9 +7,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.bharatonjava.pms.domain.Enquiry;
 
+@Repository
 public class EnquiryDaoImpl implements EnquiryDao {
 
 	@Autowired
@@ -36,6 +38,13 @@ public class EnquiryDaoImpl implements EnquiryDao {
 		return lst;
 	}
 
+	@Override
+	public Enquiry getEnquiryById(Long enquiryId){
+		Session session = sessionFactory.getCurrentSession();
+		Enquiry e = null;
+		e = (Enquiry) session.get(Enquiry.class, enquiryId);
+		return e;
+	}
 	
 	
 }

@@ -9,4 +9,6 @@ public interface EnquiryDao {
 	public void saveEnquiry(Enquiry enquiry);
 	
 	public List<Enquiry> getEnquiries();
+	
+	public Enquiry getEnquiryById(Long enquiryId);
 }
