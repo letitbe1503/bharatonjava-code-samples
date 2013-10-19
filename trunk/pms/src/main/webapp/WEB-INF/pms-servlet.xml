@@ -13,8 +13,10 @@
             http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
 
+	<bean id="employeeService" class="com.bharatonjava.pms.service.EmployeeService" />
+	<bean id="employeeDao" class="com.bharatonjava.pms.dao.EmployeeDaoImpl" />
+
 	<bean id="enquiryService"  class="com.bharatonjava.pms.service.EnquiryService"/>
-	
 	<bean id="enquiryDao" class="com.bharatonjava.pms.dao.EnquiryDaoImpl"/>
 
 	<context:property-placeholder location="classpath:placeholder.properties" />
@@ -64,6 +66,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.bharatonjava.pms.domain.Enquiry</value>
+				<value>com.bharatonjava.pms.domain.Employee</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

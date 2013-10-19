@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+				<p:panel id="viewEnquiryPanel" header="New Employee Registration">
+					<p:messages id="messages" />  
+					<h:panelGrid columns="3">
+						<p:outputLabel for="firstName" value="Employee Name:" />
+						<h:panelGrid columns="3">
+							<p:inputText id="firstName" value="#{emp.employee.firstName}"
+								required="true" requiredMessage="First Name is required">
+								<f:validateLength minimum="2" />
+							</p:inputText>
+							<p:inputText id="middleName" value="#{emp.employee.middleName}" />
+							<p:inputText id="lastName" value="#{emp.employee.lastName}" />
+						</h:panelGrid>
+						<p:message for="firstName" />
+
+						<p:outputLabel for="mobileNumber" value="Mobile Number:" />
+						<p:inputText id="mobileNumber"
+							value="#{emp.employee.mobileNumber}" required="true" requiredMessage="Mobile number is required">
+							<f:validateLength maximum="10" minimum="10"/>
+							</p:inputText>
+						<p:message for="mobileNumber" />
+
+						<p:outputLabel for="address" value="Address:" />
+						<p:inputTextarea id="address" value="#{emp.employee.address}"
+							rows="5" cols="80" required="true" requiredMessage="Addres is required" maxlength="400"/>
+						<p:message for="address" />
+
+						<p:outputLabel for="dateOfJoining" value="Date of Joining:" />
+						<p:calendar id="dateOfJoining"
+							value="#{emp.employee.dateOfJoining}" pattern="dd/MM/yyyy"
+							required="true" requiredMessage="Date of Joining is required" />
+						<p:message for="dateOfJoining" />
+
+						<p:spacer />
+						<p:commandButton value="Save" actionListener="#{emp.saveEmployee}"
+							ajax="false" />
+						<p:spacer />
+					</h:panelGrid>
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

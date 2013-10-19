@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+				<p:panel id="viewEnquiryPanel" header="Enquiry">
+
+					<h:panelGrid columns="2" cellpadding="5" columnClasses="labelColumn">
+
+						<p:outputLabel for="enquiryId" value="Enquiry Id:" />
+						<h:outputText id="enquiryId"
+							value="#{enquiry.enquiryDetailed.enquiryId}" />
+
+						<p:outputLabel for="enquiryDate" value="Enquiry Date:" />
+						<h:outputText id="enquiryDate"
+							value="#{enquiry.enquiryDetailed.enquiryDate}" />
+
+						<p:outputLabel for="partyName" value="Party Name:" />
+						<h:outputText id="partyName"
+							value="#{enquiry.enquiryDetailed.partyName}" />
+
+						<p:outputLabel for="maritalStatus" value="Marital Status:" />
+						<h:outputText id="maritalStatus"
+							value="#{enquiry.enquiryDetailed.maritalStatus}" />
+
+						<p:outputLabel for="bhk" value="BHK:" />
+						<h:outputText id="bhk" value="#{enquiry.enquiryDetailed.bhk}" />
+
+						<p:outputLabel for="possessionDate" value="Possession Date:" />
+						<h:outputText id="possessionDate"
+							value="#{enquiry.enquiryDetailed.possessionDate}" />
+
+						<p:outputLabel for="appriximateBudget" value="Appriximate Budget:" />
+						<h:outputText id="appriximateBudget"
+							value="#{enquiry.enquiryDetailed.appriximateBudget}" />
+
+
+						<p:outputLabel for="mobileNumber" value="Mobile Number:" />
+						<h:outputText id="mobileNumber"
+							value="#{enquiry.enquiryDetailed.mobileNumber}" />
+
+						<p:outputLabel for="residencePhoneNumber"
+							value="Residence Phone Number:" />
+						<h:outputText id="residencePhoneNumber"
+							value="#{enquiry.enquiryDetailed.residencePhoneNumber}" />
+
+						<p:outputLabel for="officePhoneNumber" value="Office Phone Number:" />
+						<h:outputText id="officePhoneNumber"
+							value="#{enquiry.enquiryDetailed.officePhoneNumber}" />
+
+						<p:outputLabel for="email" value="Email:" />
+						<h:outputText id="email" value="#{enquiry.enquiryDetailed.email}" />
+
+
+						<p:outputLabel for="currentAddress" value="Current Address:" />
+						<h:outputText id="currentAddress" value="#{enquiry.enquiryDetailed.currentAddress}" />
+
+						<p:outputLabel for="permanentAddress" value="Permanent Address:" />
+						<h:outputText id="permanentAddress" value="#{enquiry.enquiryDetailed.permanentAddress}" />
+
+						<p:outputLabel for="comments" value="Comments:" />
+						<h:outputText id="comments" value="#{enquiry.enquiryDetailed.comments}" />
+						
+						<p:outputLabel for="remarks" value="Remarks:" />
+						<h:outputText id="remarks" value="#{enquiry.enquiryDetailed.remarks}" />
+					</h:panelGrid>
+
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

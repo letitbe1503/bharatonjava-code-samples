@@ -28,4 +28,9 @@ public class EnquiryService {
 		return enquiryDao.getEnquiries();
 	}
 	
+	@Transactional
+	public Enquiry getEnquiryById(Long enquiryId){
+		return enquiryDao.getEnquiryById(enquiryId);
+	}
+	
 }

@@ -20,12 +20,13 @@ public class EnquiryBean implements Serializable{
 
 	private static final long serialVersionUID = -7031919946544049132L;
 
-	public Enquiry enquiry;
+	private Enquiry enquiry;
 
-	public List<Integer> bhks;
-	public Map<String, String> maritalStatuses;
-	public List<Enquiry> enquiries;
+	private List<Integer> bhks;
+	private Map<String, String> maritalStatuses;
+	private List<Enquiry> enquiries;
 	
+	private Enquiry enquiryDetailed;
 	
 	@Autowired
 	public EnquiryService enquiryService;
@@ -74,10 +75,22 @@ public class EnquiryBean implements Serializable{
 		this.enquiryService = enquiryService;
 	}
 	
-	public void saveEnquiry() {
+	public Enquiry getEnquiryDetailed() {
+		return enquiryDetailed;
+	}
+	
+	public String saveEnquiry() {
 		System.out.println("enquiry: " + enquiry);
 		enquiry.setEnquiryDate(new Date());
 		enquiryService.saveEnquiry(enquiry);
+		
+		return "viewEnquiries";
+	}
+	
+	public String viewEnquiry(Long enquiryId){
+		System.out.println("enquiryId: "+enquiryId);
+		enquiryDetailed = enquiryService.getEnquiryById(enquiryId);
+		return "viewEnquiry";
 	}
 	
 	public List<Enquiry> getEnquiries() {

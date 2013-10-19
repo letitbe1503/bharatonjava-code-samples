@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+				<p:panel id="viewEnquiryPanel" header="Enquiry">
+					<p:dataTable id="employeesTable" var="e" value="#{emp.employees}"
+						paginator="true" rows="15"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+						rowsPerPageTemplate="5,10,15">
+						<f:facet name="header">  
+        				   Employees
+        				</f:facet>
+
+
+						<p:column sortBy="employeeId" headerText="Employee Id:">
+							<h:outputText value="#{e.employeeId}" />
+						</p:column>
+
+						<p:column sortBy="employeeName" headerText="Employee Name">
+							<h:outputText value="#{e.firstName}" /> &nbsp;
+								<h:outputText value="#{e.middleName}" />
+								&nbsp;
+								<h:outputText value="#{e.lastName}" />
+						</p:column>
+
+						<p:column sortBy="dateOfJoining" headerText="Date of Joining:">
+							<h:outputText value="#{e.dateOfJoining}" />
+						</p:column>
+
+						<p:column sortBy="mobileNumber" headerText="Mobile Number">
+							<h:outputText value="#{e.mobileNumber}" />
+						</p:column>
+
+						<p:column sortBy="address" headerText="Address">
+							<h:outputText value="#{e.address}" />
+						</p:column>
+
+					</p:dataTable>
+				</p:panel>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>
