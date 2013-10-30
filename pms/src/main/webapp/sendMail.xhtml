@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form id="form">
+				<p:growl id="msgs" showDetail="true" />
+				<p:panel id="viewEnquiryPanel" header="Send Custom Email">
+
+					<p:contextMenu for="mailTemplatesTbl">
+						<p:menuitem value="Delete" update="mailTemplatesTbl"
+							icon="ui-icon-close" actionListener="#{mb.deleteTemplate}" />
+					</p:contextMenu>
+
+					<h:panelGrid columns="2" width="800px;">
+
+						<p:editor id="editor" width="600" value="#{mb.mailText}"
+							height="410" />
+
+						<p:dataTable id="mailTemplatesTbl" scrollable="true"
+							scrollHeight="200" value="#{mb.mailTemplates}" var="t"
+							rowKey="#{t.templateId}" selection="#{mb.selectedTemplate}"
+							selectionMode="single">
+
+							<p:ajax event="rowSelect" listener="#{mb.onRowSelect}"
+								update=":form:msgs :form:editor" />
+							<p:ajax event="rowUnselect" listener="#{mb.onRowUnselect}"
+								update=":form:msgs" />
+
+							<f:facet name="header">
+								<h:outputText value="Mail Templates" />
+							</f:facet>
+							<p:column headerText="Template Title">
+								<h:outputText value="#{t.templateTitle}" />
+							</p:column>
+
+						</p:dataTable>
+
+						<h:panelGrid columns="4" style="margin-top:10px">
+							<p:commandButton id="submitButton" value="Send"
+								icon="ui-icon-circle-check" actionListener="#{mb.sendEmail}" />
+							<p:commandButton id="clearButton" type="button" value="Clear"
+								onclick="PF('editor').clear()" icon="ui-icon-close" />
+							<p:spacer width="290" height="10" />
+
+							<p:commandButton id="saveTemplateButton" value="Save as Template"
+								icon="ui-icon-disk" type="button" onclick="PF('dlg1').show();" />
+
+
+						</h:panelGrid>
+
+					</h:panelGrid>
+				</p:panel>
+
+			</h:form>
+
+			<h:form id="modalForm">
+				<p:dialog id="modalDialog" header="Modal Dialog" widgetVar="dlg1"
+					modal="true" height="100" appendToBody="false">
+
+					<p:growl id="growl" sticky="true" showDetail="true" />
+					<h:panelGrid columns="2">
+						<p:message for="templateNameTxt" />
+						<p:spacer width="10" height="10" />
+						<p:outputLabel for="templateNameTxt" value="Template Name:" />
+						<p:inputText id="templateNameTxt" required="true"
+							requiredMessage="Please provide template name" />
+
+						<p:commandButton value="Save" styleClass="ui-confirmdialog-yes"
+							icon="ui-icon-check" actionListener="#{mb.saveMailTemplate}"
+							oncomplete="PF('dlg1').hide();" />
+						<p:commandButton value="Cancel" type="button" icon="ui-icon-close"
+							oncomplete="PF('dlg1').hide();" actionListener="#{mb.handleCancel}"/>
+
+					</h:panelGrid>
+
+					<p:ajax event="close" update="growl" listener="#{mb.handleClose}" />
+				</p:dialog>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

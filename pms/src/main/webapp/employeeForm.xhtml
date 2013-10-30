@@ -28,7 +28,7 @@
 						<p:message for="firstName" />
 
 						<p:outputLabel for="mobileNumber" value="Mobile Number:" />
-						<p:inputText id="mobileNumber"
+						<p:inputText id="mobileNumber" maxlength="10"
 							value="#{emp.employee.mobileNumber}" required="true" requiredMessage="Mobile number is required">
 							<f:validateLength maximum="10" minimum="10"/>
 							</p:inputText>

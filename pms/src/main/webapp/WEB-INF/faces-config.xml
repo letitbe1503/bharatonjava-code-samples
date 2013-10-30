@@ -36,6 +36,17 @@
 		</managed-property>
 	</managed-bean>
 
+	<managed-bean>
+		<managed-bean-name>mb</managed-bean-name>
+		<managed-bean-class>com.bharatonjava.pms.web.MailBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>mailService</property-name>
+			<value>#{mailService}</value>
+		</managed-property>
+	</managed-bean>
+
+
 	<navigation-rule>
 		<navigation-case>
 			<from-outcome>home</from-outcome>
@@ -78,5 +89,10 @@
 		</navigation-case>
 	</navigation-rule>
 
-
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>sendMail</from-outcome>
+			<to-view-id>/sendMail.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 </faces-config>

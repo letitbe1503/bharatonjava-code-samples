@@ -27,7 +27,7 @@
 							<h:outputText value="#{e.employeeId}" />
 						</p:column>
 
-						<p:column sortBy="employeeName" headerText="Employee Name">
+						<p:column sortBy="firstName" headerText="Employee Name">
 							<h:outputText value="#{e.firstName}" /> &nbsp;
 								<h:outputText value="#{e.middleName}" />
 								&nbsp;
@@ -35,7 +35,9 @@
 						</p:column>
 
 						<p:column sortBy="dateOfJoining" headerText="Date of Joining:">
-							<h:outputText value="#{e.dateOfJoining}" />
+							<h:outputText value="#{e.dateOfJoining}">
+								<f:convertDateTime pattern="dd-MMM-yyyy"/>
+							</h:outputText>
 						</p:column>
 
 						<p:column sortBy="mobileNumber" headerText="Mobile Number">

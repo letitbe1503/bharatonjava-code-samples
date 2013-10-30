@@ -10,11 +10,13 @@
 	<ui:composition>
 		<h:form>
 			<p:panelGrid columns="1" style="width:200px; text-align:left;">
-				<h:outputLabel value="Master" />
+				<h:outputText value="Master" styleClass="left-nav-header"/>
 				<h:commandLink value="New Enquiry" action="newEnquiry" />
 				<h:commandLink value="View Enquiries" action="viewEnquiries"
 					actionListener="#{enquiry.getAllEnquiries}" />
-				Employee Master
+				<h:outputText value="Mail" styleClass="left-nav-header"/>	
+				<h:commandLink value="Send Mail" action="sendMail" />	
+				<h:outputText value="Employee Master" styleClass="left-nav-header"/>
 				<h:commandLink value="Add Employee" action="employeeForm" />
 				<h:commandLink value="List Employees" action="employees"
 					actionListener="#{emp.initEmployees}" />

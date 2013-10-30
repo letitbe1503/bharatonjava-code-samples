@@ -25,22 +25,28 @@
 
 						<p:column sortBy="enquiryId" headerText="Enquiry Id">
 
-							<p:commandLink actionListener="#{enquiry.viewEnquiry(e.enquiryId)}"  ajax="false" action="viewEnquiry">
+							<p:commandLink
+								actionListener="#{enquiry.viewEnquiry(e.enquiryId)}"
+								ajax="false" action="viewEnquiry">
 								<h:outputText value="#{e.enquiryId}" />
 							</p:commandLink>
-							
+
 						</p:column>
 
 						<p:column sortBy="enquiryDate" headerText="Enquiry Date">
-							<h:outputText value="#{e.enquiryDate}" />
+							<h:outputText value="#{e.enquiryDate}">
+								<f:convertDateTime pattern="dd-MMM-yyyy" />
+							</h:outputText>
 						</p:column>
 
 						<p:column sortBy="partyName" headerText="Party Name">
-						
-							<p:commandLink actionListener="#{enquiry.viewEnquiry(e.enquiryId)}" ajax="false" action="viewEnquiry">
+
+							<p:commandLink
+								actionListener="#{enquiry.viewEnquiry(e.enquiryId)}"
+								ajax="false" action="viewEnquiry">
 								<h:outputText value="#{e.partyName}" />
 							</p:commandLink>
-							
+
 						</p:column>
 
 						<p:column sortBy="bhk" headerText="BHK">
