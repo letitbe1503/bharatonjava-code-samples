@@ -1,5 +1,6 @@
 package com.bharatonjava.pms.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,12 +18,15 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="Employee")
-public class Employee {
+public class Employee implements Serializable{
+
+	private static final long serialVersionUID = 4230651754488194082L;
 
 	private Long employeeId;
 	private String firstName;
 	private String middleName;
 	private String lastName;
+	private Date dateOfBirth;
 	private Long mobileNumber;
 	private String address;
 	private Date dateOfJoining;
@@ -70,6 +74,16 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
+	@Temporal(value = TemporalType.DATE)
+	@Column(name = "DATE_OF_BIRTH")
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+	
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	
 	@Column(name = "MOBILE_NUMBER")
 	public Long getMobileNumber() {
 		return mobileNumber;

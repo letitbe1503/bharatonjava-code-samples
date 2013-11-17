@@ -17,17 +17,17 @@
 					<p:dataTable id="employeesTable" var="e" value="#{emp.employees}"
 						paginator="true" rows="15"
 						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-						rowsPerPageTemplate="5,10,15">
+						rowsPerPageTemplate="5,10,15"
+						selection="">
 						<f:facet name="header">  
         				   Employees
         				</f:facet>
 
-
-						<p:column sortBy="employeeId" headerText="Employee Id:">
+						<p:column id="employeeIdCol" sortBy="employeeId" headerText="Employee Id:">
 							<h:outputText value="#{e.employeeId}" />
 						</p:column>
 
-						<p:column sortBy="firstName" headerText="Employee Name">
+						<p:column id="firstName" sortBy="firstName" headerText="Employee Name">
 							<h:outputText value="#{e.firstName}" /> &nbsp;
 								<h:outputText value="#{e.middleName}" />
 								&nbsp;
@@ -51,6 +51,7 @@
 					</p:dataTable>
 				</p:panel>
 			</h:form>
+			
 		</ui:define>
 	</ui:composition>
 

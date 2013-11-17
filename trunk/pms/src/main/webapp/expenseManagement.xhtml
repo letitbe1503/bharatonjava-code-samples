@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+				<p:panel id="addExpenseTypePanel" header="Add New Expense Type"
+					rendered="#{!exp.renderExpenses}">
+					<h:panelGrid columns="3">
+						<p:outputLabel for="expenseType" value="Expense Type:" />
+
+						<p:inputText id="expenseType" value="#{exp.expenseType.enumName}"
+							required="true" requiredMessage="Expense Type is rquired">
+							<f:validateLength minimum="1" />
+						</p:inputText>
+						<p:message for="expenseType" />
+
+						<p:spacer width="10" height="10" />
+						<p:commandButton id="addExpenseCmd" value="Save"
+							actionListener="#{exp.addNewExpenseType}"
+							update="exenseTypeTable" />
+						<p:spacer width="10" height="10" />
+					</h:panelGrid>
+
+					<p:dataTable id="exenseTypeTable" value="#{exp.expenseTypes}"
+						var="e" style="width:400px" rowIndexVar="index">
+						<p:column headerText="Sr.No.">
+							<h:outputText value="#{index + 1}" />
+						</p:column>
+						<p:column headerText="Expense Types">
+							<h:outputText value="#{e.enumName}" />
+						</p:column>
+					</p:dataTable>
+
+				</p:panel>
+
+
+				<p:panel id="addExpensePanel" header="Add New Expense"
+					rendered="#{exp.renderExpenses}">
+					<h:panelGrid columns="3">
+						
+						<p:outputLabel for="etype" value="Expense Type:" />
+							<p:selectOneMenu id="etype"
+								value="#{exp.selectedExpense}">
+								<f:selectItems value="#{exp.expenseTypes}" var="expt" itemValue="#{expt.enumId}" itemLabel="#{expt.enumName}"/>
+							</p:selectOneMenu>
+							<p:message for="etype" />
+
+						<p:outputLabel for="amount" value="Amount:" />
+						<p:inputText id="amount" value="#{exp.expense.amount}"
+							required="true" requiredMessage="Amount is rquired">
+							<f:validateLength minimum="1" />
+						</p:inputText>
+						<p:message for="amount" />
+
+						<p:outputLabel for="dt" value="Expense Date:" />
+						<p:calendar id="dt" value="#{exp.expense.expenseDate}"
+							pattern="dd/MMM/yyyy" required="true"
+							requiredMessage="Expense Date is rquired">
+							<f:validateRequired />
+						</p:calendar>
+						<p:message for="dt" />
+
+						<p:outputLabel for="comment" value="Comment:" />
+						<p:inputTextarea id="comment" value="#{exp.expense.comment}"
+							rows="6" cols="60" autoResize="false" maxlength="360" />
+						<p:message for="comment" />
+
+						<p:spacer width="10" height="10" />
+						<p:commandButton id="addExp" value="Save"
+							actionListener="#{exp.addNewExpense}" />
+						<p:spacer width="10" height="10" />
+					</h:panelGrid>
+
+
+
+				</p:panel>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>

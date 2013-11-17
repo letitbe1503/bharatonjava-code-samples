@@ -12,7 +12,7 @@
 		 http://www.springframework.org/schema/tx
             http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
-	
+
 	<bean id="employeeService" class="com.bharatonjava.pms.service.EmployeeService" />
 	<bean id="employeeDao" class="com.bharatonjava.pms.dao.EmployeeDaoImpl" />
 
@@ -21,6 +21,14 @@
 
 	<bean id="mailService" class="com.bharatonjava.pms.service.MailService" />
 	<bean id="mailDao" class="com.bharatonjava.pms.dao.MailDaoImpl" />
+
+	<bean id="enumerationDao" class="com.bharatonjava.pms.dao.EnumerationDaoImpl" />
+
+	<bean id="expenseService" class="com.bharatonjava.pms.service.ExpenseService" >
+		<property name="enumerationDao" ref="enumerationDao"/>
+	</bean>
+	
+	<bean id="expenseDao" class="com.bharatonjava.pms.dao.ExpenseDaoImpl" />
 
 	<context:property-placeholder location="classpath:placeholder.properties" />
 
@@ -71,6 +79,8 @@
 				<value>com.bharatonjava.pms.domain.Enquiry</value>
 				<value>com.bharatonjava.pms.domain.Employee</value>
 				<value>com.bharatonjava.pms.domain.MailTemplate</value>
+				<value>com.bharatonjava.pms.domain.Enumeration</value>
+				<value>com.bharatonjava.pms.domain.Expense</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

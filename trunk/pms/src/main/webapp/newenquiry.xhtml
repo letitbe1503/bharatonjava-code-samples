@@ -13,98 +13,108 @@
 		<ui:define name="content">
 
 			<h:form>
-				<p:panel id="patientRegistrationPanel" header="New Enquiry Form">
 
-					<h:panelGrid columns="3">
+				<p:wizard>
+				
+					<p:tab title="Enquiery">
+					<p:panel id="patientRegistrationPanel" header="New Enquiry Form">
 
-						<p:outputLabel for="partyName" value="Party Name:" />
-						<p:inputText id="partyName" value="#{enquiry.enquiry.partyName}"
-							required="true" size="50" />
+						<h:panelGrid columns="3">
 
-						<p:message for="partyName" />
+							<p:outputLabel for="partyName" value="Party Name:" />
+							<p:inputText id="partyName" value="#{enquiry.enquiry.partyName}"
+								required="true" size="50" />
 
-						<p:outputLabel for="maritalStatus" value="Marital Status:" />
-						<p:selectOneMenu id="maritalStatus"
-							value="#{enquiry.enquiry.maritalStatus}">
-							<f:selectItems value="#{enquiry.maritalStatuses}" />
-						</p:selectOneMenu>
-						<p:message for="maritalStatus" />
+							<p:message for="partyName" />
 
-						<p:outputLabel for="bhk" value="BHK:" />
-						<p:selectOneMenu id="bhk" value="#{enquiry.enquiry.bhk}">
-							<f:selectItems value="#{enquiry.bhks}" />
-						</p:selectOneMenu>
-						<p:message for="bhk" />
+							<p:outputLabel for="maritalStatus" value="Marital Status:" />
+							<p:selectOneMenu id="maritalStatus"
+								value="#{enquiry.enquiry.maritalStatus}">
+								<f:selectItems value="#{enquiry.maritalStatuses}" />
+							</p:selectOneMenu>
+							<p:message for="maritalStatus" />
 
-						<p:outputLabel for="possessionDate" value="Possession Date:" />
-						<p:calendar id="possessionDate"
-							value="#{enquiry.enquiry.possessionDate}" size="10"
-							pattern="dd/MM/yyyy">
-						</p:calendar>
-						<p:message for="possessionDate" />
+							<p:outputLabel for="bhk" value="BHK:" />
+							<p:selectOneMenu id="bhk" value="#{enquiry.enquiry.bhk}">
+								<f:selectItems value="#{enquiry.bhks}" />
+							</p:selectOneMenu>
+							<p:message for="bhk" />
 
-						<p:outputLabel for="appriximateBudget" value="Approximate Budget:" />
-						<p:inputText id="appriximateBudget"
-							value="#{enquiry.enquiry.appriximateBudget}" size="10"
-							maxlength="10" />
-						<p:message for="appriximateBudget" />
+							<p:outputLabel for="possessionDate" value="Possession Date:" />
+							<p:calendar id="possessionDate"
+								value="#{enquiry.enquiry.possessionDate}" size="10"
+								pattern="dd/MM/yyyy">
+							</p:calendar>
+							<p:message for="possessionDate" />
 
-						<p:outputLabel for="mobileNumber" value="Mobile Number:" />
-						<p:inputText id="mobileNumber"
-							value="#{enquiry.enquiry.mobileNumber}" size="10" maxlength="10" />
-						<p:message for="mobileNumber" />
+							<p:outputLabel for="appriximateBudget"
+								value="Approximate Budget:" />
+							<p:inputText id="appriximateBudget"
+								value="#{enquiry.enquiry.appriximateBudget}" size="10"
+								maxlength="10" />
+							<p:message for="appriximateBudget" />
 
-						<p:outputLabel for="residencePhoneNumber"
-							value="Residence Phone Number:" />
-						<p:inputText id="residencePhoneNumber"
-							value="#{enquiry.enquiry.residencePhoneNumber}" size="10"
-							maxlength="10" />
-						<p:message for="residencePhoneNumber" />
+							<p:outputLabel for="mobileNumber" value="Mobile Number:" />
+							<p:inputText id="mobileNumber"
+								value="#{enquiry.enquiry.mobileNumber}" size="10" maxlength="10" />
+							<p:message for="mobileNumber" />
 
-						<p:outputLabel for="officePhoneNumber"
-							value="Office Phone Number:" />
-						<p:inputText id="officePhoneNumber"
-							value="#{enquiry.enquiry.officePhoneNumber}" size="10"
-							maxlength="10" />
-						<p:message for="officePhoneNumber" />
+							<p:outputLabel for="residencePhoneNumber"
+								value="Residence Phone Number:" />
+							<p:inputText id="residencePhoneNumber"
+								value="#{enquiry.enquiry.residencePhoneNumber}" size="10"
+								maxlength="10" />
+							<p:message for="residencePhoneNumber" />
 
-						<p:outputLabel for="email" value="Email:" />
-						<p:inputText id="email" value="#{enquiry.enquiry.email}"
-							maxlength="200" size="50" />
-						<p:message for="email" />
+							<p:outputLabel for="officePhoneNumber"
+								value="Office Phone Number:" />
+							<p:inputText id="officePhoneNumber"
+								value="#{enquiry.enquiry.officePhoneNumber}" size="10"
+								maxlength="10" />
+							<p:message for="officePhoneNumber" />
 
-						<p:outputLabel for="currentAddress" value="Current Address:" />
-						<p:inputTextarea id="currentAddress" cols="60" rows="8"
-							maxlength="400" minQueryLength="0"
-							value="#{enquiry.enquiry.currentAddress}" />
-						<p:message for="currentAddress" />
+							<p:outputLabel for="email" value="Email:" />
+							<p:inputText id="email" value="#{enquiry.enquiry.email}"
+								maxlength="200" size="50" />
+							<p:message for="email" />
 
-						<p:outputLabel for="permanentAddress" value="Permanent Address:" />
-						<p:inputTextarea id="permanentAddress" cols="60" rows="8"
-							maxlength="400" minQueryLength="0"
-							value="#{enquiry.enquiry.permanentAddress}" />
-						<p:message for="permanentAddress" />
+							<p:outputLabel for="currentAddress" value="Current Address:" />
+							<p:inputTextarea id="currentAddress" cols="60" rows="8"
+								maxlength="400" minQueryLength="0"
+								value="#{enquiry.enquiry.currentAddress}" />
+							<p:message for="currentAddress" />
 
-						<p:outputLabel for="comments" value="Comments:" />
-						<table style="border-collapse: collapse;">
-							<tr>
-								<td><p:inputTextarea id="comments" cols="80" rows="10"
-										maxlength="400" minQueryLength="0" counter="counter"
-										counterTemplate="{0} characters remaining."
-										value="#{enquiry.enquiry.comments}" /></td>
-							</tr>
-							<tr>
-								<td><h:outputText id="counter" /></td>
-							</tr>
-						</table>
-						<p:message for="comments" />
+							<p:outputLabel for="permanentAddress" value="Permanent Address:" />
+							<p:inputTextarea id="permanentAddress" cols="60" rows="8"
+								maxlength="400" minQueryLength="0"
+								value="#{enquiry.enquiry.permanentAddress}" />
+							<p:message for="permanentAddress" />
 
-						<p:commandButton value="Save" action="#{enquiry.saveEnquiry}" />
+							<p:outputLabel for="comments" value="Comments:" />
+							<table style="border-collapse: collapse;">
+								<tr>
+									<td><p:inputTextarea id="comments" cols="80" rows="10"
+											maxlength="400" minQueryLength="0" counter="counter"
+											counterTemplate="{0} characters remaining."
+											value="#{enquiry.enquiry.comments}" /></td>
+								</tr>
+								<tr>
+									<td><h:outputText id="counter" /></td>
+								</tr>
+							</table>
+							<p:message for="comments" />
 
-					</h:panelGrid>
-				</p:panel>
+							<p:commandButton value="Save" action="#{enquiry.saveEnquiry}" />
 
-				<ui:debug />
+						</h:panelGrid>
+					</p:panel>
+					</p:tab>
+					
+					<p:tab title="Contract Information">
+					
+					</p:tab>
+				</p:wizard>
+
 			</h:form>
 
 		</ui:define>

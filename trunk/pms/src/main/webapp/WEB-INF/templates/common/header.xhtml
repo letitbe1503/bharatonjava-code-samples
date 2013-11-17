@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
-    <body>
-	    <ui:composition>
- 		
-<!--  		<p:graphicImage value="images/school-logo.png" /> -->
- 
-		<p:outputLabel value="#{msg.siteheader}" style="font-size:30px;font-family:gothic;color:white;margin-left:20px;"/>
- 
-	    </ui:composition>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+<body>
+	<ui:composition>
+
+		<!--  		<p:graphicImage value="images/school-logo.png" /> -->
+		<h:form>
+			<h:panelGrid columns="2" width="100%">
+				<h:commandLink action="home" style="">
+					<p:outputLabel value="#{msg.siteheader}"
+						style="font-size:30px;font-family:gothic;color:white;margin-left:20px;" />
+				</h:commandLink>
+				
+				<p:commandLink value="Login" action="login"/>
+			</h:panelGrid>
+		</h:form>
+	</ui:composition>
+</body>
 </html>

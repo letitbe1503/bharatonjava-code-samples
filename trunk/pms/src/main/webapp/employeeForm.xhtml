@@ -13,44 +13,63 @@
 		<ui:define name="content">
 
 			<h:form>
-				<p:panel id="viewEnquiryPanel" header="New Employee Registration">
-					<p:messages id="messages" />  
-					<h:panelGrid columns="3">
-						<p:outputLabel for="firstName" value="Employee Name:" />
-						<h:panelGrid columns="3">
-							<p:inputText id="firstName" value="#{emp.employee.firstName}"
-								required="true" requiredMessage="First Name is required">
-								<f:validateLength minimum="2" />
-							</p:inputText>
-							<p:inputText id="middleName" value="#{emp.employee.middleName}" />
-							<p:inputText id="lastName" value="#{emp.employee.lastName}" />
-						</h:panelGrid>
-						<p:message for="firstName" />
+				<p:wizard>
+					
+					<p:tab title="Personal">
+						<p:panel id="viewEnquiryPanel" header="New Employee Registration">
+							<p:messages id="messages" />
+							<h:panelGrid columns="3">
+								<p:outputLabel for="firstName" value="Employee Name:" />
+								<h:panelGrid columns="3">
+									<p:inputText id="firstName" value="#{emp.employee.firstName}"
+										required="true" requiredMessage="First Name is required">
+										<f:validateLength minimum="2" />
+									</p:inputText>
+									<p:inputText id="middleName" value="#{emp.employee.middleName}" />
+									<p:inputText id="lastName" value="#{emp.employee.lastName}" />
+								</h:panelGrid>
+								<p:message for="firstName" />
+					
+							<p:outputLabel for="dateOfBirth" value="Date of Birth:" />
+								<p:calendar id="dateOfBirth"
+									value="#{emp.employee.dateOfBirth}" pattern="dd/MM/yyyy"
+									required="true" requiredMessage="Date of Birth is required" />
+								<p:message for="dateOfBirth" />
+							</h:panelGrid>
+						</p:panel>
+					</p:tab>
 
-						<p:outputLabel for="mobileNumber" value="Mobile Number:" />
-						<p:inputText id="mobileNumber" maxlength="10"
-							value="#{emp.employee.mobileNumber}" required="true" requiredMessage="Mobile number is required">
-							<f:validateLength maximum="10" minimum="10"/>
-							</p:inputText>
-						<p:message for="mobileNumber" />
+					<p:tab title="Contact">
+						<p:panel>
+							<h:panelGrid columns="3">
+								<p:outputLabel for="mobileNumber" value="Mobile Number:" />
+								<p:inputText id="mobileNumber" maxlength="10"
+									value="#{emp.employee.mobileNumber}" required="true"
+									requiredMessage="Mobile number is required">
+									<f:validateLength maximum="10" minimum="10" />
+								</p:inputText>
+								<p:message for="mobileNumber" />
 
-						<p:outputLabel for="address" value="Address:" />
-						<p:inputTextarea id="address" value="#{emp.employee.address}"
-							rows="5" cols="80" required="true" requiredMessage="Addres is required" maxlength="400"/>
-						<p:message for="address" />
+								<p:outputLabel for="address" value="Address:" />
+								<p:inputTextarea id="address" value="#{emp.employee.address}"
+									rows="5" cols="80" required="true"
+									requiredMessage="Addres is required" maxlength="400" />
+								<p:message for="address" />
 
-						<p:outputLabel for="dateOfJoining" value="Date of Joining:" />
-						<p:calendar id="dateOfJoining"
-							value="#{emp.employee.dateOfJoining}" pattern="dd/MM/yyyy"
-							required="true" requiredMessage="Date of Joining is required" />
-						<p:message for="dateOfJoining" />
+								<p:outputLabel for="dateOfJoining" value="Date of Joining:" />
+								<p:calendar id="dateOfJoining"
+									value="#{emp.employee.dateOfJoining}" pattern="dd/MM/yyyy"
+									required="true" requiredMessage="Date of Joining is required" />
+								<p:message for="dateOfJoining" />
+								
+								<p:spacer />
+								<p:commandButton value="Save"
+									actionListener="#{emp.saveEmployee}" ajax="false" />
+							</h:panelGrid>
+						</p:panel>
+					</p:tab>
 
-						<p:spacer />
-						<p:commandButton value="Save" actionListener="#{emp.saveEmployee}"
-							ajax="false" />
-						<p:spacer />
-					</h:panelGrid>
-				</p:panel>
+				</p:wizard>
 			</h:form>
 		</ui:define>
 	</ui:composition>

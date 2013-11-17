@@ -30,7 +30,7 @@
 							scrollHeight="200" value="#{mb.mailTemplates}" var="t"
 							rowKey="#{t.templateId}" selection="#{mb.selectedTemplate}"
 							selectionMode="single">
-
+							
 							<p:ajax event="rowSelect" listener="#{mb.onRowSelect}"
 								update=":form:msgs :form:editor" />
 							<p:ajax event="rowUnselect" listener="#{mb.onRowUnselect}"
