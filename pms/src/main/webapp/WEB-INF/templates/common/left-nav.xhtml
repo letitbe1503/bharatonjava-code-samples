@@ -10,13 +10,21 @@
 	<ui:composition>
 		<h:form>
 			<p:panelGrid columns="1" style="width:200px; text-align:left;">
-				<h:outputText value="Master" styleClass="left-nav-header"/>
+				
+				<h:commandLink value="Home" action="home" />
+				<h:commandLink value="Login" action="login" />
+				<h:outputText value="Property Master" styleClass="left-nav-header" />
+				<h:commandLink value="Add New Property" action="propertyForm" />
+				<h:outputText value="Master" styleClass="left-nav-header" />
 				<h:commandLink value="New Enquiry" action="newEnquiry" />
 				<h:commandLink value="View Enquiries" action="viewEnquiries"
 					actionListener="#{enquiry.getAllEnquiries}" />
-				<h:outputText value="Mail" styleClass="left-nav-header"/>	
-				<h:commandLink value="Send Mail" action="sendMail" />	
-				<h:outputText value="Employee Master" styleClass="left-nav-header"/>
+				<h:outputText value="Expense Management" styleClass="left-nav-header" />
+				<h:commandLink value="Add Expense" action="expenseManagement" actionListener="#{exp.showExpenseScreen}"/>
+				<h:commandLink value="Add Expense Type" action="expenseManagement" actionListener="#{exp.showAddExpenseScreen}"/>
+				<h:outputText value="Mail" styleClass="left-nav-header" />
+				<h:commandLink value="Send Mail" action="sendMail" />
+				<h:outputText value="Employee Master" styleClass="left-nav-header" />
 				<h:commandLink value="Add Employee" action="employeeForm" />
 				<h:commandLink value="List Employees" action="employees"
 					actionListener="#{emp.initEmployees}" />

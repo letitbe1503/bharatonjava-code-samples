@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13835825890620" configfile="/pms/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1330" id="pf13835827375061" outlinks="pf13835827375062 pf13835827375063 pf13835827375064 pf13835827375065 pf13835827375066 pf13835827375067 pf13835827375068 pf13841001792830 pf13845802024540" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" x="338" y="178" id="pf13835827375069" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13835827375062" path="/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="newenquiry.xhtml" x="338" y="562" id="pf138358273750610" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13835827375063" path="/newenquiry.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listEnquires.xhtml" x="338" y="946" id="pf138358273750611" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf13835827375064" path="/listEnquires.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="viewEnquiry.xhtml" x="338" y="1330" id="pf138358273750612" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf13835827375065" path="/viewEnquiry.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="employees.xhtml" x="338" y="1714" id="pf138358273750713" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf13835827375066" path="/employees.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="employeeForm.xhtml" x="338" y="2098" id="pf138358273750714" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf13835827375067" path="/employeeForm.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="sendMail.xhtml" x="338" y="2482" id="pf138358273750715" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf13835827375068" path="/sendMail.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="propertyForm.xhtml" id="pf13841001792831" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf13841001792830" path="/propertyForm.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="expenseManagement.xhtml" id="pf13845802024541" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf13845802024540" path="/expenseManagement.xhtml"/>
+  <links id="pf13835827375062" target="pf13835827375069" source="pf13835827375061" outcome="home"/>
+  <links id="pf13835827375063" target="pf138358273750610" source="pf13835827375061" outcome="newEnquiry"/>
+  <links id="pf13835827375064" target="pf138358273750611" source="pf13835827375061" outcome="viewEnquiries"/>
+  <links id="pf13835827375065" target="pf138358273750612" source="pf13835827375061" outcome="viewEnquiry"/>
+  <links id="pf13835827375066" target="pf138358273750713" source="pf13835827375061" outcome="employees"/>
+  <links id="pf13835827375067" target="pf138358273750714" source="pf13835827375061" outcome="employeeForm"/>
+  <links id="pf13835827375068" target="pf138358273750715" source="pf13835827375061" outcome="sendMail"/>
+  <links id="pf13841001792830" target="pf13841001792831" source="pf13835827375061" outcome="propertyForm"/>
+  <links id="pf13845802024540" target="pf13845802024541" source="pf13835827375061" outcome="expenseManagement"/>
+</pageflow:Pageflow>

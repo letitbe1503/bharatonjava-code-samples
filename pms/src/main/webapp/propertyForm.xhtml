@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+
+	<ui:composition template="WEB-INF/templates/common/common-layout.xhtml">
+
+		<ui:define name="content">
+
+			<h:form>
+				<p:wizard>
+
+					<p:tab title="Property">
+						<p:panel id="propertyDetailsPanel" header="New Property Entry">
+							<h:panelGrid columns="3">
+								<p:outputLabel for="propertyAddress" value="Property Address:" />
+								<p:inputTextarea id="propertyAddress" rows="6" cols="60"
+									required="true" requiredMessage="Property Address is Required"
+									value="#{prop.property.propertyAddress}" autoResize="false"
+									maxlength="400" />
+								<p:message for="propertyAddress" />
+
+								<p:outputLabel for="expectedRent" value="Expected Rent:" />
+								<p:inputText id="expectedRent"
+									value="#{prop.property.expectedRent}" required="true"
+									requiredMessage="Expected Rent is required">
+
+									<f:validateDoubleRange for="expectedRent" minimum="0"
+										maximum="2000000"></f:validateDoubleRange>
+								</p:inputText>
+								<p:message for="expectedRent" />
+
+							</h:panelGrid>
+						</p:panel>
+					</p:tab>
+					<p:tab title="Owner">
+						<p:panel id="ownerDetailsPanel" header="Owner Details">
+							<h:panelGrid columns="3">
+
+								<p:outputLabel for="ownerName" value="Owner Name:" />
+								<p:inputText id="ownerName" value="#{prop.property.ownerName}"
+									required="true" requiredMessage="Owner Name is required" />
+								<p:message for="ownerName" />
+
+								<p:outputLabel for="ownerAddress" value="Owner Address:" />
+								<p:inputTextarea id="ownerAddress" rows="6" cols="60"
+									autoResize="false" required="true"
+									requiredMessage="Owner Address is Required"
+									value="#{prop.property.ownerPermanentAddress}" maxlength="400" />
+								<p:message for="ownerAddress" />
+
+								<p:outputLabel for="ownerMobile" value="Mobile No:" />
+								<p:inputText id="ownerMobile"
+									value="#{prop.property.ownerMobileNo}" maxlength="12" />
+								<p:message for="ownerMobile" />
+
+								<p:outputLabel for="ownerLandline" value="Landline No:" />
+								<p:inputText id="ownerLandline"
+									value="#{prop.property.ownerLandlineNo}" maxlength="14" />
+								<p:message for="ownerLandline" />
+								
+								<p:outputLabel for="email" value="Email:" />
+								<p:inputText id="email"
+									value="#{prop.property.ownerEmail}" maxlength="150" style="width:350px;"/>
+								<p:message for="email" />
+							</h:panelGrid>
+						</p:panel>
+					</p:tab>
+					<p:tab title="Summary">
+						<p:panel>
+							<h:panelGrid columns="2" cellpadding="5" columnClasses="labelColumn">
+								
+								<p:outputLabel for="address" value="Property Address:"/>
+								<h:outputText id="address" value="#{prop.property.propertyAddress}"/>
+								
+								<p:outputLabel for="rent" value="Expected Rent:"/>
+								<h:outputText id="rent" value="#{prop.property.expectedRent}"/>
+								
+								<p:outputLabel for="name" value="Owner Name:"/>
+								<h:outputText id="name" value="#{prop.property.ownerName}"/>
+								
+								<p:outputLabel for="oAddress" value="Owner Address:"/>
+								<h:outputText id="oAddress" value="#{prop.property.ownerPermanentAddress}"/>
+								
+								<p:outputLabel for="mobile" value="Moblie No:"/>
+								<h:outputText id="mobile" value="#{prop.property.ownerMobileNo}"/>
+								
+								<p:outputLabel for="landline" value="Landline No:"/>
+								<h:outputText id="landline" value="#{prop.property.ownerLandlineNo}"/>
+								
+								<p:outputLabel for="owneremail" value="Email:"/>
+								<h:outputText id="owneremail" value="#{prop.property.ownerEmail}"/>
+								
+								<p:spacer />
+								<p:commandButton value="Save"
+									actionListener="#{emp.saveEmployee}" ajax="false" />
+								
+							</h:panelGrid>
+						</p:panel>
+					</p:tab>
+
+				</p:wizard>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+
+</html>
