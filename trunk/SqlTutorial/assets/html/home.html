@@ -38,7 +38,7 @@
       			<a href="#gettingStarted" class="ui-btn">Getting Started</a>
 			    <a href="#introduction" class="ui-btn">Introduction</a>
       			<a href="#syntax" class="ui-btn">Syntax</a>
-      			<a href="#" class="ui-btn">Select</a>
+      			<a href="#select" class="ui-btn">Select</a>
       			<a href="#" class="ui-btn">Distinct</a>
       			<a href="#" class="ui-btn">Where</a>
       			<a href="#" class="ui-btn">And &amp; Or</a>
@@ -222,6 +222,39 @@
 			<h3>SQL Statements</h3>
 			<p>Most of the actions you need to perform on a database are done with SQL statements.</p>
 			<p>The following SQL statement selects all the records in the "CUSTOMERS" table:</p>
+			
+			<div class="example">
+				<h2 class="example">Example</h2>
+				<div class="example_code notranslate">
+					SELECT * FROM CUSTOMERS;
+				</div>
+			</div>
+			
+			<h2>Keep in Mind That...</h2>
+			<ul>
+				<li>SQL is NOT case sensitive: select is the same as SELECT</li>
+			</ul>
+			<p>In this tutorial we will write all SQL keywords in upper-case.</p>
+			<hr>
+			<h2>Semicolon after SQL Statements?</h2>
+			<p>Some database systems require a semicolon at the end of each SQL statement.</p>
+			<p>Semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server.</p>
+			<p>In this tutorial, we will use semicolon at the end of each SQL statement.</p>
+			<hr>
+			<h2>Some of The Most Important SQL Commands</h2>
+			<ul>
+				<li><b>SELECT</b> - extracts data from a database</li>
+				<li><b>UPDATE</b> - updates data in a database</li>
+				<li><b>DELETE</b> - deletes data from a database</li>
+				<li><b>INSERT INTO</b> - inserts new data into a database</li>
+				<li><b>CREATE DATABASE</b> - creates a new database</li>
+				<li><b>ALTER DATABASE</b> - modifies a database</li>
+				<li><b>CREATE TABLE</b> - creates a new table</li>
+				<li><b>ALTER TABLE</b> - modifies a table</li>
+				<li><b>DROP TABLE</b> - deletes a table</li>
+				<li><b>CREATE INDEX</b> - creates an index (search key)</li>
+				<li><b>DROP INDEX</b> - deletes an index</li>
+			</ul>
 		</div>
 
 		<div data-role="footer">
@@ -231,5 +264,73 @@
 		</div>
 	</div>
 
+
+	<!-- Basics - Select -->
+	
+	<div data-role="page" id="select">
+		<div data-role="header">
+			<h1>Select</h1>
+		</div>
+	
+		<div data-role="main" class="ui-content">
+			<hr>
+			<p class="intro">The SELECT statement is used to select data from a database.</p>
+			<hr>
+			<h2>The SQL SELECT Statement</h2>
+			<p>The SELECT statement is used to select data from a database.</p>
+			<p>The result is stored in a result table, called the result-set.</p>
+			<h3>SQL SELECT Syntax</h3>
+			<div class="code notranslate">
+				<div>
+				SELECT
+				<em>column_name</em>
+				,
+				<em>column_name</em>
+				<br>
+				FROM
+				<em>table_name</em>
+				;
+				</div>
+				</div>
+				<p>and</p>
+				
+				<div class="code notranslate">
+					<div>
+					SELECT * FROM
+					<em>table_name</em>
+					;
+					</div>
+				</div>
+				<br>
+				<hr>
+				<h2>Demo Database</h2>
+				<p>In this tutorial we will use the well-known Northwind sample database.</p>
+				<p>Below is a selection from the "Customers" table:</p>
+				<table class="reference notranslate">
+					  <tbody><tr>
+					    <th>ID</th>
+					    <th>NAME</th>
+					    <th>ADDRESS</th>
+					    <th>PINCODE</th>
+					    <th>COUNTRY</th>
+					  </tr>
+					  <tr>
+					    <td>1</td>
+					    <td>Bharat</td>
+					    <td>Bareilly</td>
+					    <td>243122</td>
+					    <td>India</td>
+					  </tr>
+					</tbody>
+				</table>
+		</div>
+
+		<div data-role="footer">
+			<a href="#home" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+	    	<a href="#"  class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-rel="back">Back</a>
+	    	<div id="branding">&copy;Bharat Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+		</div>
+	</div>
+	
 </body>
 </html>
