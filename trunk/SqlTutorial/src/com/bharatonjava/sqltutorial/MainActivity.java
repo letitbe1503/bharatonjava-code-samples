@@ -1,8 +1,9 @@
 package com.bharatonjava.sqltutorial;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.KeyEvent;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import android.view.Menu;
 import android.webkit.WebView;
 
@@ -17,7 +18,10 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		myWebView = (WebView) findViewById(R.id.webview);
-		myWebView.loadUrl("http://bharatonjava.wordpress.com");
+		myWebView.getSettings().setJavaScriptEnabled(true);
+		// myWebView.loadUrl("http://bharatonjava.wordpress.com");
+		myWebView.loadUrl("file:///android_asset/html/home.html");
+		
 	}
 
 	
@@ -25,21 +29,26 @@ public class MainActivity extends Activity {
 	 * Back button
 	 */
 	@Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(event.getAction() == KeyEvent.ACTION_DOWN){
-            switch(keyCode)
+    public void onBackPressed()
+    {
+        if(myWebView.canGoBack()){
+        	myWebView.goBack();
+        }else{
+            new AlertDialog.Builder(this)
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setTitle("Exit!")
+            .setMessage("Exit Tutorial?")
+            .setPositiveButton("Yes", new DialogInterface.OnClickListener()
             {
-            case KeyEvent.KEYCODE_BACK:
-                if(myWebView.canGoBack()){
-                    myWebView.goBack();
-                }else{
-                    finish();
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();    
                 }
-                return true;
-            }
 
-        }
-        return super.onKeyDown(keyCode, event);
+            })
+            .setNegativeButton("No", null)
+            .show();    
+        }   
     }
 	
 	
@@ -49,7 +58,8 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-		
+	
+	
 	
 
 }

@@ -1,0 +1,14 @@
+#branding{
+	font-size: 8px;
+	color: gray;
+	
+}
+
+table {
+	border: 1px solid gray;
+	border-spacing: 0;
+}
+
+table thead {
+	background-color: #F49231;
+}
