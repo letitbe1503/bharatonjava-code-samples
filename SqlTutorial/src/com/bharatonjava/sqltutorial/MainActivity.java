@@ -19,6 +19,7 @@ public class MainActivity extends Activity {
 		
 		myWebView = (WebView) findViewById(R.id.webview);
 		myWebView.getSettings().setJavaScriptEnabled(true);
+		myWebView.getSettings().setBuiltInZoomControls(true);
 		// myWebView.loadUrl("http://bharatonjava.wordpress.com");
 		myWebView.loadUrl("file:///android_asset/html/home.html");
 		
