@@ -4,13 +4,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="file:///android_asset/css/jquery.mobile-1.4.2.min.css">
-<link rel="stylesheet"
-	href="file:///android_asset/css/styles.css">
+<link rel="stylesheet" href="file:///android_asset/css/styles.css">
 <script src="file:///android_asset/js/jquery-1.10.2.min.js"></script>
 <script src="file:///android_asset/js/jquery.mobile-1.4.2.min.js"></script>
 <script src="file:///android_asset/js/script.js"></script>
 </head>
 <body>
+
+	<!-- leftpanel1 -->
+	<div data-role="panel" id="leftpanel" data-position="left" data-display="reveal" data-theme="a">
+
+        <h3>Left Panel: Reveal</h3>
+        <p>This panel is positioned on the left with the reveal display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p>
+        <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
+        <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
+
+	</div><!-- /leftpanel1 -->
+
 
 	<div data-role="page" id="home">
 		<div data-role="header">
@@ -18,13 +28,13 @@
 		</div>
 
 		<div data-role="main" class="ui-content">
-			<a href="#basics" class="ui-btn">Basics</a> 
-			<a href="#advanced" class="ui-btn">Advanced</a> 
-			<a href="#functions" class="ui-btn">Functions</a>
+			<a href="#basics" class="ui-btn">Basics</a> <a href="#advanced"
+				class="ui-btn">Advanced</a> <a href="#functions" class="ui-btn">Functions</a>
 		</div>
 
 		<div data-role="footer">
-	    	<div id="branding">&copy;Bharat Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
 		</div>
 	</div>
 
@@ -35,25 +45,28 @@
 
 		<div data-role="main" class="ui-content">
 			<div data-role="controlgroup" data-type="vertical">
-      			<a href="#gettingStarted" class="ui-btn">Getting Started</a>
-			    <a href="#introduction" class="ui-btn">Introduction</a>
-      			<a href="#syntax" class="ui-btn">Syntax</a>
-      			<a href="#select" class="ui-btn">Select</a>
-      			<a href="#" class="ui-btn">Distinct</a>
-      			<a href="#" class="ui-btn">Where</a>
-      			<a href="#" class="ui-btn">And &amp; Or</a>
-      			<a href="#" class="ui-btn">Order By</a>
-      			<a href="#" class="ui-btn">Insert</a>
-      			<a href="#" class="ui-btn">Update</a>
-      			<a href="#" class="ui-btn">Delete</a>
-    		</div>
+				<a href="#gettingStarted" class="ui-btn">Getting Started</a> <a
+					href="#introduction" class="ui-btn">Introduction</a> <a
+					href="#syntax" class="ui-btn">Syntax</a> <a href="#select"
+					class="ui-btn">Select</a> <a href="#distinct" class="ui-btn">Distinct</a>
+				<a href="#where" class="ui-btn">Where</a> <a href="#andor" class="ui-btn">And
+					&amp; Or</a> <a href="#orderby" class="ui-btn">Order By</a> <a href="#insert"
+					class="ui-btn">Insert</a> <a href="#update" class="ui-btn">Update</a> <a
+					href="#delete" class="ui-btn">Delete</a>
+			</div>
 			<a href="#home">Home</a>
 		</div>
 
 		<div data-role="footer">
-			<a href="#home" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-	    	<a href="#"  class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-rel="back">Back</a>
-	    	<div id="branding">&copy;Bharat Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#" data-rel="back">Back</a></li>
+				</ul>
+			</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<!-- /navbar -->
 		</div>
 	</div>
 
@@ -67,13 +80,19 @@
 		<div data-role="main" class="ui-content">
 			<p>This is Page Two. If you click on the link below, it will take
 				you to Page One.</p>
-			<a href="#home">Home</a>
+
 		</div>
 
 		<div data-role="footer">
-			<a href="#home" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-	    	<a href="#"  class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-rel="back">Back</a>
-	    	<div id="branding">&copy;Bharat Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#" data-rel="back">Back</a></li>
+				</ul>
+			</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<!-- /navbar -->
 		</div>
 	</div>
 
@@ -83,153 +102,176 @@
 			<h1>Functions</h1>
 		</div>
 
-		<div data-role="main" class="ui-content">
+		<div data-role="main" class="ui-content">comming soon...</div>
 
-			<a href="#home">Home</a>
-		</div>
-
-		
 		<div data-role="footer">
-			<a href="#home" class="ui-btn ui-btn-inline">Home</a>
-	    	<a href="#" class="ui-btn ui-btn-inline" data-rel="back">Back</a>
-	    	<div id="branding">&copy;Bharat Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#" data-rel="back">Back</a></li>
+				</ul>
+			</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<!-- /navbar -->
 		</div>
 	</div>
 
 
 	<!-- Basics - Getting started page -->
-	
-	<div data-role="page" id="gettingStarted">
-	<div data-role="header">
-		<h1>Getting Started</h1>
-	</div>
 
-	<div data-role="main" class="ui-content">
-		<p>SQL is a standard language for accessing databases.</p>
-		<p>Our SQL tutorial will teach you how to use SQL to access and manipulate data in: 
-		MySQL, SQL Server, Access, Oracle, Sybase, DB2, and other database systems.</p>
-		<a href="#home">Home</a>
-	</div>
+	<div data-role="page" id="gettingStarted">
+		<div data-role="header">
+			<h1>Getting Started</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p>SQL is a standard language for accessing databases.</p>
+			<p>Our SQL tutorial will teach you how to use SQL to access and
+				manipulate data in: MySQL, SQL Server, Access, Oracle, Sybase, DB2,
+				and other database systems.</p>
+		</div>
 
 		<div data-role="footer">
-			<a href="#home" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-	    	<a href="#"  class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-rel="back">Back</a>
-	    	<div id="branding">&copy;Bharat Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#" data-rel="back">Back</a></li>
+				</ul>
+			</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<!-- /navbar -->
 		</div>
 	</div>
 
 
 	<!-- Basics - Introduction -->
-	
-	<div data-role="page" id="introduction">
-	<div data-role="header">
-		<h1>Introduction</h1>
-	</div>
 
-	<div data-role="main" class="ui-content">
-		<h3>What is SQL?</h3>
-		<ul>
-			<li>SQL stands for Structured Query Language</li>
-			<li>SQL lets you access and manipulate databases</li>
-			<li>SQL is an ANSI (American National Standards Institute) standard</li>
-		</ul>
-		
-		<h3>What Can SQL do?</h3>
-		<ul>
-			<li>SQL can execute queries against a database</li>
-			<li>SQL can retrieve data from a database</li>
-			<li>SQL can insert records in a database</li>
-			<li>SQL can update records in a database</li>
-			<li>SQL can delete records from a database</li>
-			<li>SQL can create new databases</li>
-			<li>SQL can create new tables in a database</li>
-			<li>SQL can create stored procedures in a database</li>
-			<li>SQL can create views in a database</li>
-			<li>SQL can set permissions on tables, procedures, and views</li>
-		</ul>
-		
-		<h3>SQL is a Standard - BUT....</h3>
-		<p>Although SQL is an ANSI (American National Standards Institute) standard, there are different versions of the SQL language.</p>
-		<p>However, to be compliant with the ANSI standard, they all support at least 
-			the major commands (such as SELECT, UPDATE, DELETE, INSERT, WHERE) in a similar manner.</p>
-			
-		<h3>Using SQL in Your Web Site</h3>
-		<p>To build a web site that shows data from a database, you will need:</p>
-		<ul>
-			<li>An RDBMS database program (i.e. MS Access, SQL Server, MySQL)</li>
-			<li>To use a server-side scripting language, like PHP or ASP</li>
-			<li>To use SQL to get the data you want</li>
-			<li>To use HTML / CSS</li>
-		</ul>
-		
-	</div>
+	<div data-role="page" id="introduction">
+		<div data-role="header">
+			<h1>Introduction</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<h3>What is SQL?</h3>
+			<ul>
+				<li>SQL stands for Structured Query Language</li>
+				<li>SQL lets you access and manipulate databases</li>
+				<li>SQL is an ANSI (American National Standards Institute)
+					standard</li>
+			</ul>
+
+			<h3>What Can SQL do?</h3>
+			<ul>
+				<li>SQL can execute queries against a database</li>
+				<li>SQL can retrieve data from a database</li>
+				<li>SQL can insert records in a database</li>
+				<li>SQL can update records in a database</li>
+				<li>SQL can delete records from a database</li>
+				<li>SQL can create new databases</li>
+				<li>SQL can create new tables in a database</li>
+				<li>SQL can create stored procedures in a database</li>
+				<li>SQL can create views in a database</li>
+				<li>SQL can set permissions on tables, procedures, and views</li>
+			</ul>
+
+			<h3>SQL is a Standard - BUT....</h3>
+			<p>Although SQL is an ANSI (American National Standards
+				Institute) standard, there are different versions of the SQL
+				language.</p>
+			<p>However, to be compliant with the ANSI standard, they all
+				support at least the major commands (such as SELECT, UPDATE, DELETE,
+				INSERT, WHERE) in a similar manner.</p>
+
+			<h3>Using SQL in Your Web Site</h3>
+			<p>To build a web site that shows data from a database, you will
+				need:</p>
+			<ul>
+				<li>An RDBMS database program (i.e. MS Access, SQL Server,
+					MySQL)</li>
+				<li>To use a server-side scripting language, like PHP or ASP</li>
+				<li>To use SQL to get the data you want</li>
+				<li>To use HTML / CSS</li>
+			</ul>
+
+		</div>
 
 		<div data-role="footer">
-			<a href="#home" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-	    	<a href="#"  class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-rel="back">Back</a>
-	    	<div id="branding">&copy;Bharat Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#" data-rel="back">Back</a></li>
+				</ul>
+			</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<!-- /navbar -->
 		</div>
 	</div>
 
 
 	<!-- Basics - Syntax -->
-	
+
 	<div data-role="page" id="syntax">
 		<div data-role="header">
 			<h1>SQL Syntax</h1>
 		</div>
 
 		<div data-role="main" class="ui-content">
-			<p>A database most often contains one or more tables. Each table is identified by a name (e.g. "CUSTOMERS" or "ORDERS"). Tables contain records (rows) with data.</p>
-			
-			<table class="ui-shadow" >
-			<thead>
-			  <tr>
-			    <th>ID</th>
-			    <th>CUST_NAME</th>
-			    <th>ADDRESS</th>
-			    <th>CITY</th>
-			  </tr>
-			  </thead>
-			  <tbody>
-			  <tr>
-			    <td>1<br><br></td>
-			    <td>Ram</td>
-			    <td>Obere</td>
-			    <td>Berlin</td>
-			  </tr>
-			  <tr>
-			    <td>2</td>
-			    <td>Hari</td>
-			    <td>Avda</td>
-			    <td>Mexico</td>
-			  </tr>
-			  <tr>
-			    <td>3</td>
-			    <td>Shravan</td>
-			    <td>Mataderos</td>
-			    <td>México D.F.</td>
-			  </tr>
-			  <tr>
-			    <td>4<br><br></td>
-			    <td>Krishna</td>
-			    <td>Hanover Sq.</td>
-			    <td>London</td>
-			  </tr>
-			</tbody>
+			<p>A database most often contains one or more tables. Each table
+				is identified by a name (e.g. "CUSTOMERS" or "ORDERS"). Tables
+				contain records (rows) with data.</p>
+
+			<table class="ui-shadow">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>CUST_NAME</th>
+						<th>ADDRESS</th>
+						<th>CITY</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1<br> <br></td>
+						<td>Ram</td>
+						<td>Obere</td>
+						<td>Berlin</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Hari</td>
+						<td>Avda</td>
+						<td>Mexico</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Shravan</td>
+						<td>Mataderos</td>
+						<td>MÃ©xico D.F.</td>
+					</tr>
+					<tr>
+						<td>4<br> <br></td>
+						<td>Krishna</td>
+						<td>Hanover Sq.</td>
+						<td>London</td>
+					</tr>
+				</tbody>
 			</table>
-	
+
 			<h3>SQL Statements</h3>
-			<p>Most of the actions you need to perform on a database are done with SQL statements.</p>
-			<p>The following SQL statement selects all the records in the "CUSTOMERS" table:</p>
-			
+			<p>Most of the actions you need to perform on a database are done
+				with SQL statements.</p>
+			<p>The following SQL statement selects all the records in the
+				"CUSTOMERS" table:</p>
+
 			<div class="example">
 				<h2 class="example">Example</h2>
-				<div class="example_code notranslate">
-					SELECT * FROM CUSTOMERS;
+				<div class="example_code notranslate">SELECT * FROM CUSTOMERS;
 				</div>
 			</div>
-			
+
 			<h2>Keep in Mind That...</h2>
 			<ul>
 				<li>SQL is NOT case sensitive: select is the same as SELECT</li>
@@ -237,9 +279,13 @@
 			<p>In this tutorial we will write all SQL keywords in upper-case.</p>
 			<hr>
 			<h2>Semicolon after SQL Statements?</h2>
-			<p>Some database systems require a semicolon at the end of each SQL statement.</p>
-			<p>Semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server.</p>
-			<p>In this tutorial, we will use semicolon at the end of each SQL statement.</p>
+			<p>Some database systems require a semicolon at the end of each
+				SQL statement.</p>
+			<p>Semicolon is the standard way to separate each SQL statement
+				in database systems that allow more than one SQL statement to be
+				executed in the same call to the server.</p>
+			<p>In this tutorial, we will use semicolon at the end of each SQL
+				statement.</p>
 			<hr>
 			<h2>Some of The Most Important SQL Commands</h2>
 			<ul>
@@ -257,24 +303,29 @@
 			</ul>
 		</div>
 
+		<
 		<div data-role="footer">
-			<a href="#home" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-	    	<a href="#"  class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-rel="back">Back</a>
-	    	<div id="branding">&copy;Bharat Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#" data-rel="back">Back</a></li>
+				</ul>
+			</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<!-- /navbar -->
 		</div>
 	</div>
 
 
 	<!-- Basics - Select -->
-	
+
 	<div data-role="page" id="select">
 		<div data-role="header">
 			<h1>Select</h1>
 		</div>
-	
+
 		<div data-role="main" class="ui-content">
-			<hr>
-			<p class="intro">The SELECT statement is used to select data from a database.</p>
 			<hr>
 			<h2>The SQL SELECT Statement</h2>
 			<p>The SELECT statement is used to select data from a database.</p>
@@ -282,55 +333,165 @@
 			<h3>SQL SELECT Syntax</h3>
 			<div class="code notranslate">
 				<div>
-				SELECT
-				<em>column_name</em>
-				,
-				<em>column_name</em>
-				<br>
-				FROM
-				<em>table_name</em>
-				;
-				</div>
-				</div>
-				<p>and</p>
-				
-				<div class="code notranslate">
-					<div>
-					SELECT * FROM
-					<em>table_name</em>
+					SELECT <em>column_name</em> , <em>column_name</em> <br> FROM <em>table_name</em>
 					;
-					</div>
 				</div>
-				<br>
-				<hr>
-				<h2>Demo Database</h2>
-				<p>In this tutorial we will use the well-known Northwind sample database.</p>
-				<p>Below is a selection from the "Customers" table:</p>
-				<table class="reference notranslate">
-					  <tbody><tr>
-					    <th>ID</th>
-					    <th>NAME</th>
-					    <th>ADDRESS</th>
-					    <th>PINCODE</th>
-					    <th>COUNTRY</th>
-					  </tr>
-					  <tr>
-					    <td>1</td>
-					    <td>Bharat</td>
-					    <td>Bareilly</td>
-					    <td>243122</td>
-					    <td>India</td>
-					  </tr>
-					</tbody>
-				</table>
+			</div>
+			<p>and</p>
+
+			<div class="code notranslate">
+				<div>
+					SELECT * FROM <em>table_name</em> ;
+				</div>
+			</div>
+			<br>
+			<hr>
+			<h2>Demo Database</h2>
+			<p>In this tutorial we will use the well-known Northwind sample
+				database.</p>
+			<p>Below is a selection from the "Customers" table:</p>
+			<table class="reference notranslate">
+				<tbody>
+					<tr>
+						<th>ID</th>
+						<th>NAME</th>
+						<th>ADDRESS</th>
+						<th>PINCODE</th>
+						<th>COUNTRY</th>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>Bharat</td>
+						<td>Bareilly</td>
+						<td>243122</td>
+						<td>India</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 
 		<div data-role="footer">
-			<a href="#home" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
-	    	<a href="#"  class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-icon-back ui-btn-icon-left" data-rel="back">Back</a>
-	    	<div id="branding">&copy;Bharat Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#" data-rel="back">Back</a></li>
+				</ul>
+			</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<!-- /navbar -->
 		</div>
 	</div>
-	
+
+
+	<!-- Basics - Distinct -->
+
+	<div data-role="page" id="distinct">
+		<div data-role="header">
+			<h1>Distinct</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<hr />
+			<p>The SELECT DISTINCT statement is used to return only distinct
+				(different) values.</p>
+			<hr />
+			<h2>The SQL SELECT DISTINCT Statement</h2>
+			<p>In a table, a column may contain many duplicate values; and
+				sometimes you only want to list the different (distinct) values.</p>
+			<p>The DISTINCT keyword can be used to return only distinct
+				(different) values.</p>
+			<h3>SQL SELECT DISTINCT Syntax</h3>
+			<div class="code notranslate">
+				<div>SELECT DISTINCT column_name,column_name FROM table_name;
+				</div>
+			</div>
+			<h2>Demo Database</h2>
+			<p>In this tutorial we will use the well-known Northwind sample
+				database.</p>
+			<p>Below is a selection from the "Customers" table:</p>
+			<table class="reference notranslate">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>NAME</th>
+						<th>ADDRESS</th>
+						<th>PINCODE</th>
+						<th>COUNTRY</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Bharat</td>
+						<td>Bareilly</td>
+						<td>243122</td>
+						<td>India</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Jayant</td>
+						<td>Pune</td>
+						<td>57612</td>
+						<td>India</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Ravi</td>
+						<td>Bareilly</td>
+						<td>243122</td>
+						<td>India</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>Kapil</td>
+						<td>Mumbai</td>
+						<td>400101</td>
+						<td>India</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#" data-rel="back">Back</a></li>
+				</ul>
+			</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<!-- /navbar -->
+		</div>
+	</div>
+
+	<!-- Basics -  Where -->
+	<div data-role="page" id="where">
+
+		<div data-role="header">
+			<h1>SQL WHERE Clause</h1>
+		</div>
+		<!-- /header -->
+
+		<div role="main" class="ui-content">
+			<p>Page content goes here.</p>
+		</div>
+		<!-- /content -->
+
+		<div data-role="footer">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#" data-rel="back">Back</a></li>
+				</ul>
+			</div>
+			<div id="branding" style="text-align: center;">&copy;Bharat
+				Sharma &#186; ibharatsharma@gmail.com &#186; +91 9819681177</div>
+			<!-- /navbar -->
+		</div>
+	</div>
+	<!-- /page -->
+
 </body>
 </html>
