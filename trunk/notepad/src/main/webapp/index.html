@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="assets/styles.css"/>
+</head>
+<body>
+	<div data-ng-app="" data-ng-controller="notesController">
+		<p>
+			Name: <input type="text" data-ng-model="name">
+		</p>
+		<p data-ng-bind="name"></p>
+		<br/>
+		<p><input type="text" ng-model="noteIdFilter"></p>
+		<ol>
+			<li data-ng-repeat="note in notes | filter:noteIdFilter | orderBy: 'noteId'">
+			{{note.noteId +" "+ note.detail | uppercase}}</li>
+		</ol>
+	
+		<br/>
+		
+		search: <input type="text" data-ng-model="tblFilter" />
+		<table>
+			<tr data-ng-repeat="n in names | filter: tblFilter | orderBy: 'City'">
+				<td>{{n.Name}}</td>
+				<td>{{n.City}}</td>
+				<td>{{n.Country}}</td>
+			</tr>
+		</table>
+		
+		<br/>
+		<ul data-ng-repeat="n in names">
+			<li>{{n.Name +" --> "+ n.City +" --> "+ n.Country}}</li>
+		</ul>
+	
+		<p>Show hide example</p>
+		show/hide:<input type="checkbox" data-ng-model="showHideCheckbox">
+		<p data-ng-show="showHideCheckbox">the textbox is checked</p>
+		<p data-ng-hide="showHideCheckbox">the textbox is un-checked</p>
+	
+	
+	
+	</div>
+	
+	
+	
+	
+	<script src="assets/notesController.js"></script>
+	<script src="assets/angular.min.js"></script>
+</body>
+</html>
