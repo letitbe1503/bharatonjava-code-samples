@@ -5,16 +5,17 @@ import java.util.Date;
 public class Note {
 	private int noteId;
 	private String content;
-	private Date noteDate;
+	private Date createdDate;
+	private Date updatedDate;
 
 	public Note() {
 	}
 
-	public Note(int noteId, String content, Date noteDate) {
+	public Note(int noteId, String content, Date createdDate) {
 		super();
 		this.noteId = noteId;
 		this.content = content;
-		this.noteDate = noteDate;
+		this.createdDate = createdDate;
 	}
 
 	public int getNoteId() {
@@ -33,18 +34,27 @@ public class Note {
 		this.content = content;
 	}
 
-	public Date getNoteDate() {
-		return noteDate;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
-
-	public void setNoteDate(Date noteDate) {
-		this.noteDate = noteDate;
+	
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+	
+	public Date getUpdatedDate() {
+		return updatedDate;
+	}
+	
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
 	}
 
 	@Override
 	public String toString() {
 		return "Note [noteId=" + noteId + ", content=" + content
-				+ ", noteDate=" + noteDate + "]";
+				+ ", createdDate=" + createdDate + ", updatedDate="
+				+ updatedDate + "]";
 	}
 
 }
