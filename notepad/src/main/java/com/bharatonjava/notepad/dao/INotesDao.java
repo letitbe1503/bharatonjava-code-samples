@@ -11,11 +11,11 @@ public interface INotesDao {
 	
 	public List<Note> getNotesByDate(Date date);
 	
-	public Note getNoteById();
+	public Note getNoteById(int noteId);
 	
 	public void deleteNote(int id);
 	
 	public void updateNote(Note note);
 	
-	public void createNote(Note note);
+	public int createNote(Note note);
 }

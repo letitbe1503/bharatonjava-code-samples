@@ -1,23 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="assets/static/styles.css"/>
+<link rel="stylesheet" type="text/css" href="assets/static/styles.css" />
 </head>
 <body>
-	<div data-ng-app="" data-ng-controller="notesController">
-		
-		
-		<p><input type="text" data-ng-model="notesFilter"/></p>
-		<table >
-			<tr data-ng-repeat="note in notes | filter: notesFilter | orderBy:'noteId'">
-				<td>{{note.noteId}}</td>
-				<td>{{note.content}}</td>
-				<td>{{note.noteDate}}</td>
-			</tr>
-		</table>
-		<br/>
+	<div data-ng-app="" data-ng-controller="notesController" style="width:100%;">
 
-	
+		<div class="containerDiv">
+
+			<div class="toolbar">
+				
+				<label>Search:</label> <input type="text" data-ng-model="notesFilter" style="width:300px;"/> 
+				<img alt="Add" src="assets/images/add-icon.png" style="padding-left: 20px;">
+				<img alt="Add" src="assets/images/Undo-icon.png" style="padding-left: 50px;">
+				<img alt="Add" src="assets/images/delete-icon.png" style="padding-left: 80px;">
+			</div>
+			<table style="width:100%">
+				<thead>
+					<tr>
+						<th width="60">Note Id</th>
+						<th>Details</th>
+						<th>Created Date</th>
+						<th>Updated Date</th>
+					</tr>
+				</thead>
+				<tr
+					data-ng-repeat="note in notes | filter: notesFilter | orderBy:'noteId'">
+					<td>{{note.noteId}}</td>
+					<td>{{note.content}}</td>
+					<td>{{note.createdDate}}</td>
+					<td>{{note.updatedDate}}</td>
+				</tr>
+			</table>
+			<br />
+			
+			<!-- Form -->
+			
+			<div ng-controller="formController" style="vertical-align: middle; text-align: left;">
+	  			<form novalidate>
+	    			Note:
+	    			<textarea rows="20" cols="100" data-ng-bind="formText.aa"></textarea>
+	    			<br>
+				    <button ng-click="reset()">RESET</button>
+	  			</form>
+	  			<p>form = {{formText }}</p>
+	  			<p>master = {{masterText}}</p>
+			</div>
+
+		</div>
+		
+		
+
+
 	</div>
 	<script src="assets/static/notesController.js"></script>
 	<script src="assets/static/angular.min.js"></script>

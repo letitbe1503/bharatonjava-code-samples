@@ -4,6 +4,11 @@ table,th,td {
 	padding: 5px;
 }
 
+table th{
+	background-color: #ffcd35;
+	color: bfbfbf;
+}
+
 table tr:nth-child(odd) {
 	background-color: #f1f1f1;
 }
@@ -12,3 +17,32 @@ table tr:nth-child(even) {
 	background-color: #ffffff;
 }
 
+.containerDiv {
+	margin: 0 auto;
+	width: 900px;
+}
+
+
+div {
+    position:relative;
+}
+
+img {
+    position:absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+
+.image {
+    min-height:50px
+}
+
+.toolbar{
+	background-color: #ff9e35;
+}
+
+textarea {
+   font-size: 12pt;
+   font-family: Tahoma;
+} 

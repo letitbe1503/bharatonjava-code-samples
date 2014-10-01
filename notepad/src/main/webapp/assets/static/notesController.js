@@ -6,3 +6,12 @@ function notesController($scope, $http) {
 			});
 
 };
+
+
+function formController ($scope) {
+    $scope.masterText = {aa:'this is sample text'};
+    $scope.reset = function() {
+        $scope.formText = angular.copy($scope.masterText);
+    };
+    $scope.reset();
+}
