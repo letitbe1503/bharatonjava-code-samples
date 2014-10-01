@@ -28,7 +28,7 @@
 	  </init-param>
 	  <init-param>
 	    <param-name>jersey.config.servlet.filter.staticContentRegex</param-name>
-	    <param-value>/.*html</param-value>
+	    <param-value>/assets/.*</param-value>
 	  </init-param>
 	</filter> 
 	<filter-mapping>
@@ -39,6 +39,6 @@
 	
 	
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>assets/index.html</welcome-file>
 	</welcome-file-list>
 </web-app>
