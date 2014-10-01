@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="assets/static/styles.css"/>
+</head>
+<body>
+	<div data-ng-app="" data-ng-controller="notesController">
+		
+		
+		<p><input type="text" data-ng-model="notesFilter"/></p>
+		<table >
+			<tr data-ng-repeat="note in notes | filter: notesFilter | orderBy:'noteId'">
+				<td>{{note.noteId}}</td>
+				<td>{{note.content}}</td>
+				<td>{{note.noteDate}}</td>
+			</tr>
+		</table>
+		<br/>
+
+	
+	</div>
+	<script src="assets/static/notesController.js"></script>
+	<script src="assets/static/angular.min.js"></script>
+</body>
+</html>
