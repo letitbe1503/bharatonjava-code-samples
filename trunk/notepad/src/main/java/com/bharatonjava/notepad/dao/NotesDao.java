@@ -36,6 +36,8 @@ public class NotesDao implements INotesDao {
 				Note n = new Note();
 				n.setNoteId(rs.getInt("note_id"));
 				n.setContent(rs.getString("content"));
+				n.setCreatedDate(rs.getDate("created_date"));
+				n.setUpdatedDate(rs.getDate("updated_date"));
 				notes.add(n);
 			}
 
@@ -51,12 +53,14 @@ public class NotesDao implements INotesDao {
 		return notes;
 	}
 
+	
 	@Override
 	public List<Note> getNotesByDate(Date date) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	
 	@Override
 	public Note getNoteById(int noteId) {
 		log.info("NoteId: " + noteId);

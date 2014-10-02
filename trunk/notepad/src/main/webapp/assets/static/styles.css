@@ -1,10 +1,15 @@
+html {
+	font-size: 12pt;
+	font-family: Tahoma;
+}
+
 table,th,td {
 	border: 1px solid grey;
 	border-collapse: collapse;
 	padding: 5px;
 }
 
-table th{
+table th {
 	background-color: #ffcd35;
 	color: bfbfbf;
 }
@@ -22,27 +27,27 @@ table tr:nth-child(even) {
 	width: 900px;
 }
 
-
 div {
-    position:relative;
+	position: relative;
 }
 
 img {
-    position:absolute;
-    top:0;
-    bottom:0;
-    margin:auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
 }
 
 .image {
-    min-height:50px
+	min-height: 50px
 }
 
-.toolbar{
+.toolbar {
 	background-color: #ff9e35;
 }
 
 textarea {
-   font-size: 12pt;
-   font-family: Tahoma;
-} 
+	background-color: #F9F9F6;
+	font-size: 12pt;
+	font-family: Tahoma;
+}
