@@ -18,14 +18,14 @@
 			<table style="width:100%">
 				<thead>
 					<tr>
-						<th width="60">Note Id</th>
-						<th>Details</th>
-						<th>Created Date</th>
-						<th>Updated Date</th>
+						<th width="70" data-ng-click="changeSorting('noteId')">Note Id</th>
+						<th data-ng-click="changeSorting('content')">Details</th>
+						<th data-ng-click="changeSorting('createdDate')">Created Date</th>
+						<th data-ng-click="changeSorting('updatedDate')">Updated Date</th>
 					</tr>
 				</thead>
 				<tr
-					data-ng-repeat="note in notes | filter: notesFilter | orderBy:'noteId'">
+					data-ng-repeat="note in notes | filter: notesFilter | orderBy:sort.column: sort.descending">
 					<td>{{note.noteId}}</td>
 					<td>{{note.content}}</td>
 					<td>{{note.createdDate}}</td>
@@ -36,12 +36,12 @@
 			
 			<!-- Form -->
 			
-			<div ng-controller="formController" style="vertical-align: middle; text-align: left;">
-	  			<form novalidate>
-	    			Note:
-	    			<textarea rows="20" cols="100" data-ng-bind="formText.aa"></textarea>
+			<div ng-controller="formController" style="vertical-align: top; text-align: left;">
+	  			<form novalidate name="noteForm" style="text-align: right;">
+	    			<textarea rows="20" cols="121" data-ng-bind="formText.aa"></textarea>
 	    			<br>
-				    <button ng-click="reset()">RESET</button>
+				    <button ng-click="reset()">Reset</button>
+	    			<button data-ng-click="saveNote()">Save</button>
 	  			</form>
 	  			<p>form = {{formText }}</p>
 	  			<p>master = {{masterText}}</p>
