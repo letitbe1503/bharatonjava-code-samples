@@ -12,7 +12,22 @@
 	<ui:composition template="WEB-INF/facelets/basicLayout.xhtml">
 
 		<ui:define name="content">
-			home page
+
+			<p:dataTable var="note" value="#{notesBean.notes}">
+			
+				<p:column headerText="Id">
+					<h:outputText value="#{note.noteId}" />
+				</p:column>
+
+				<p:column headerText="Title">
+					<h:outputText value="#{note.title}" />
+				</p:column>
+
+				<p:column headerText="Text">
+					<h:outputText value="#{note.noteText}" />
+				</p:column>
+			</p:dataTable>
+
 		</ui:define>
 
 	</ui:composition>
