@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:body>
+	<ui:composition template="WEB-INF/facelets/basicLayout.xhtml">
+
+		<ui:define name="content">
+			<h:outputText value="Message:#{pfExceptionHandler.message}" />
+			<h:outputText value="#{pfExceptionHandler.formattedStackTrace}"
+				escape="false" />
+
+			<p:ajaxExceptionHandler
+				type="javax.faces.application.ViewExpiredException"
+				update="exceptionDialog" onexception="PF('exceptionDialog').show();" />
+			<p:dialog id="exceptionDialog"
+				header="Exception: #{pfExceptionHandler.type} occured!"
+				widgetVar="exceptionDialog" height="500px">
+				Message: #{pfExceptionHandler.message} <br />
+				StackTrace: <h:outputText
+					value="#{pfExceptionHandler.formattedStackTrace}" escape="false" />
+				<p:button onclick="document.location.href = document.location.href;"
+					value="Reload!" />
+			</p:dialog>
+
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+
+</html>
