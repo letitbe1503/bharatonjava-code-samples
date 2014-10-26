@@ -20,5 +20,16 @@
 			org.primefaces.application.exceptionhandler.PrimeExceptionHandlerFactory
 		</exception-handler-factory>
 	</factory>
+	
+	<managed-bean>
+		<managed-bean-name>notesBean</managed-bean-name>
+		<managed-bean-class>com.bharatonjava.notes.web.NotesBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>notesService</property-name>
+			<property-class>com.bharatonjava.notes.services.NotesService</property-class>
+			<value>#{notesService}</value>
+		</managed-property>
+	</managed-bean>
 
 </faces-config>
